@@ -1,0 +1,17 @@
+{
+    "version": 3,
+    "mappings": "AIAA,AAAA,YAAY,CAAA;EACR,gBAAgB,EDDC,OAAO;CCE3B",
+    "sources": [
+        "../sass/main.scss",
+        "../sass/abstracts/_functions.scss",
+        "../sass/abstracts/_mixins.scss",
+        "../sass/abstracts/_variables.scss",
+        "../sass/base/_base.scss",
+        "../sass/base/_animations.scss",
+        "../sass/base/_typography.scss",
+        "../sass/base/_utilities.scss",
+        "../sass/pages/_home.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}
