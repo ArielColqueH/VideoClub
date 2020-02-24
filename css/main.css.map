@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AIAA,AAAA,YAAY,CAAA;EACR,gBAAgB,EDDC,OAAO;CCE3B",
+    "mappings": "AIAA,AAAA,YAAY,EAAC,gBAAgB,CAAA;EACzB,gBAAgB,EDDC,OAAO;CCE3B",
     "sources": [
         "../sass/main.scss",
         "../sass/abstracts/_functions.scss",
