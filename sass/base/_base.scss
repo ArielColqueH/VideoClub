@@ -1,4 +1,24 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.50;
+}
+body{
+    box-sizing: border-box;
+}
 .btn-primary,.bg-primary-blue{
     background-color : $color-primary-blue ;
 }
+.navbar{
+    .nav-item{
+        font-size: 1.2rem;
+        &.active{
+            border-bottom: 5px solid #fff;
+        }
+    }
+}
+
 

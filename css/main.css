@@ -1,4 +1,28 @@
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  font-size: 62.50;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .btn-primary, .bg-primary-blue {
   background-color: #1030ad;
+}
+
+.navbar .nav-item {
+  font-size: 1.2rem;
+}
+
+.navbar .nav-item.active {
+  border-bottom: 5px solid #fff;
 }
 /*# sourceMappingURL=main.css.map */
