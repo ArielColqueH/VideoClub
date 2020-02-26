@@ -17,8 +17,7 @@ body {
 }
 
 .btn-primary,
-.bg-primary-blue,
-.thead-blue {
+.bg-primary-blue {
   background-color: #1030ad;
 }
 
@@ -68,7 +67,21 @@ body {
   margin-right: 0px;
 }
 
-.table td, .table th {
+.table .thead-blue {
+  background-color: #425cca;
+}
+
+.table td,
+.table th {
   vertical-align: middle !important;
+}
+
+.filter-tools .dropdown-toggle {
+  background-color: #1030ad;
+  color: #fff;
+}
+
+.filter-tools .form-control {
+  border: 2px solid #425cca;
 }
 /*# sourceMappingURL=main.css.map */

@@ -12,8 +12,7 @@ body {
   box-sizing: border-box;
 }
 .btn-primary,
-.bg-primary-blue,
-.thead-blue {
+.bg-primary-blue {
   background-color: $color-primary-blue;
 }
 .text-primary-blue {
@@ -58,7 +57,20 @@ body {
   margin-right: 0px;
 }
 .table {
-  td,th {
-    vertical-align: middle!important;//careful
+  .thead-blue {
+    background-color: $color-secondary-blue;
+  }
+  td,
+  th {
+    vertical-align: middle !important; //careful
+  }
+}
+.filter-tools {
+  .dropdown-toggle {
+    background-color: $color-primary-blue;
+    color: #fff;
+  }
+  .form-control {
+    border:  2px solid $color-secondary-blue;
   }
 }
