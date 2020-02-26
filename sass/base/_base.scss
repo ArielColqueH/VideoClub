@@ -12,7 +12,8 @@ body {
   box-sizing: border-box;
 }
 .btn-primary,
-.bg-primary-blue {
+.bg-primary-blue,
+.thead-blue {
   background-color: $color-primary-blue;
 }
 .text-primary-blue {
@@ -47,8 +48,17 @@ body {
   vertical-align: middle;
 }
 .center {
-	position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-} 
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.row-no-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.table {
+  td,th {
+    vertical-align: middle!important;//careful
+  }
+}

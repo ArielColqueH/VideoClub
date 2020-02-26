@@ -17,7 +17,8 @@ body {
 }
 
 .btn-primary,
-.bg-primary-blue {
+.bg-primary-blue,
+.thead-blue {
   background-color: #1030ad;
 }
 
@@ -60,5 +61,14 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+.row-no-margin {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.table td, .table th {
+  vertical-align: middle !important;
 }
 /*# sourceMappingURL=main.css.map */
