@@ -1,4 +1,6 @@
-*, ::after, ::before {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: inherit;
@@ -6,7 +8,7 @@
 }
 
 html {
-  font-size: 62.50;
+  font-size: 62.5;
 }
 
 body {
@@ -14,7 +16,8 @@ body {
           box-sizing: border-box;
 }
 
-.btn-primary, .bg-primary-blue {
+.btn-primary,
+.bg-primary-blue {
   background-color: #1030ad;
 }
 
@@ -27,6 +30,35 @@ body {
 }
 
 .navbar .nav-item.active {
-  border-bottom: 5px solid #fff;
+  border-bottom: 2.5px solid #fff;
+}
+
+.navbar .nav-item .nav-link:hover {
+  font-weight: bold;
+}
+
+/*perfiliconuser*/
+.circle {
+  float: right;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 /*# sourceMappingURL=main.css.map */

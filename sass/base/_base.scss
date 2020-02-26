@@ -1,27 +1,54 @@
-*,::after,::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
-html{
-    font-size: 62.50;
+html {
+  font-size: 62.5;
 }
-body{
-    box-sizing: border-box;
+body {
+  box-sizing: border-box;
 }
-.btn-primary,.bg-primary-blue{
-    background-color : $color-primary-blue ;
+.btn-primary,
+.bg-primary-blue {
+  background-color: $color-primary-blue;
 }
-.text-primary-blue{
-    color:$color-primary-blue;
+.text-primary-blue {
+  color: $color-primary-blue;
 }
-.navbar{
-    .nav-item{
-        font-size: 1.2rem;
-        &.active{
-            border-bottom: 5px solid #fff;
-        }
+.navbar {
+  .nav-item {
+    font-size: 1.2rem;
+    &.active {
+      border-bottom: 2.5px solid #fff;
     }
+    .nav-link {
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
 }
-
-
+/*perfiliconuser*/
+.circle {
+  float: right;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  vertical-align: middle;
+}
+.center {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+} 
