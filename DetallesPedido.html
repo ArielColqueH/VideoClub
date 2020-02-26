@@ -80,7 +80,7 @@
       <div class="row row-no-margin my-4">
         <!--title page-->
         <h2 class="text-primary-blue">
-          Catalogo de Peliculas Disponibles
+          Detalles de Pedido
         </h2>
         <!--//title page-->
         <!--cart icon-->
@@ -90,94 +90,56 @@
         </div>
         <!--//cart icon-->
       </div>
-      <div class="row filter-tools my-4 row-no-margin">
-        <!--input movies-->
-        <input
-          type="text"
-          class="form-control d-inline w-50"
-          placeholder="Ingrese el nombre de la pelicula o actor"
-        />
-        <!--//input movies-->
-        <!--dropwdown genero-->
-        <div class="dropdown ml-3">
-          <!--dropdown principal-->
-          <a
-            class="btn dropdown-toggle"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Genero
-          </a>
-          <!--//dropdown principal-->
-          <!--drop item-->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item">Opcion 1</a>
-            <a class="dropdown-item">Opcion 2</a>
-            <a class="dropdown-item">Opcion 3</a>
+      <div class="row">
+        <div class="col-md-8">
+          <!--table-->
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-blue">
+                <tr class="text-white text-center">
+                  <th scope="col">Nombre de Pelicula</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Fecha de Solicitud</th>
+                  <th scope="col">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center">
+                  <th>1</th>
+                  <td>Jojo Rabbit</td>
+                  <td>5</td>
+                  <td>
+                    <button class="btn bg-primary-blue text-light">
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <!--//drop item-->
+          <!--//table-->
         </div>
-        <!--//dropwdown genero-->
-        <!--dropwdown oscar prize's-->
-        <div class="dropdown ml-3">
-          <!--dropdown principal-->
-          <a
-            class="btn dropdown-toggle"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Premios Oscar's
-          </a>
-          <!--//dropdown principal-->
-          <!--drop item-->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item">Premio 1</a>
-            <a class="dropdown-item">Premio 2</a>
-            <a class="dropdown-item">Premio 3</a>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <p>Fecha de Prestamo</p>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col">
+              <p>Fecha de Devolucion</p>
+              <input type="text" class="form-control" />
+            </div>
           </div>
-          <!--//drop item-->
         </div>
-        <!--//dropwdown oscar prize's-->
       </div>
-      <!--table-->
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="thead-blue">
-            <tr class="text-white text-center">
-              <th scope="col">Codigo</th>
-              <th scope="col">Nombre de Pelicula</th>
-              <th scope="col">Genero</th>
-              <th scope="col">Actores/Actrices</th>
-              <th scope="col">Nom. al Oscar</th>
-              <th scope="col">Fecha de Registro</th>
-              <th scope="col">Disponibles</th>
-              <th scope="col">Añadir</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="text-center">
-              <th>1</th>
-              <td>Jojo Rabbit</td>
-              <td>Comedia/Drama</td>
-              <td>Scarlett Johansson</td>
-              <td>3</td>
-              <td>13/2/2020</td>
-              <td>5</td>
-              <td>
-                <button class="btn bg-primary-blue text-light">Añadir</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!--//table-->
+      <h3 class="my-3">Precio del producto : 3 Bs</h3>
+      <div class="row">
+        <button class="btn bg-primary-blue text-light ml-3">
+          <i class="fas fa-chevron-left mr-2"></i> Atras
+        </button>
+        <button class="btn bg-primary-blue text-light ml-3">
+          Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
+        </button>
       </div>
     </div>
     <script
