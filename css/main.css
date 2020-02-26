@@ -18,6 +18,10 @@ body {
   background-color: #1030ad;
 }
 
+.title {
+  color: #1030ad;
+}
+
 .navbar .nav-item {
   font-size: 1.2rem;
 }

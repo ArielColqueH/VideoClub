@@ -12,6 +12,9 @@ body{
 .btn-primary,.bg-primary-blue{
     background-color : $color-primary-blue ;
 }
+.title{
+    color:$color-primary-blue;
+}
 .navbar{
     .nav-item{
         font-size: 1.2rem;
