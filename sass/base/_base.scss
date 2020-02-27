@@ -82,7 +82,8 @@ body {
   }
 }
 .modal {
-  margin-top: 15vh;
+  overflow-y: auto;
+  padding-top: 10vh;
   .modal-header {
     background-color: $color-primary-blue;
     color: #fff;
@@ -91,4 +92,7 @@ body {
     border: none;
     color: #fff;
   }
+}
+label {
+  margin-bottom: 0;
 }

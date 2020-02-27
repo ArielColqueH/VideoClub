@@ -95,7 +95,8 @@ body {
 }
 
 .modal {
-  margin-top: 15vh;
+  overflow-y: auto;
+  padding-top: 10vh;
 }
 
 .modal .modal-header {
@@ -106,5 +107,9 @@ body {
 .modal .close {
   border: none;
   color: #fff;
+}
+
+label {
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=main.css.map */
