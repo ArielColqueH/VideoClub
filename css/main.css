@@ -84,4 +84,13 @@ body {
 .filter-tools .form-control {
   border: 2px solid #425cca;
 }
+
+.cart {
+  color: #000;
+}
+
+.cart:hover {
+  text-decoration: none;
+  color: #1030ad;
+}
 /*# sourceMappingURL=main.css.map */

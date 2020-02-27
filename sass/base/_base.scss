@@ -71,6 +71,13 @@ body {
     color: #fff;
   }
   .form-control {
-    border:  2px solid $color-secondary-blue;
+    border: 2px solid $color-secondary-blue;
+  }
+}
+.cart {
+  color: #000;
+  &:hover{
+    text-decoration: none;
+    color:$color-primary-blue
   }
 }
