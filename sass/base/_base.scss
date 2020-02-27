@@ -76,8 +76,19 @@ body {
 }
 .cart {
   color: #000;
-  &:hover{
+  &:hover {
     text-decoration: none;
-    color:$color-primary-blue
+    color: $color-primary-blue;
+  }
+}
+.modal {
+  .modal-header {
+    background-color: $color-primary-blue;
+    color: #fff;
+    
+  }
+  .close {
+    border: none;
+    color: #fff;
   }
 }

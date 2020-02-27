@@ -93,4 +93,14 @@ body {
   text-decoration: none;
   color: #1030ad;
 }
+
+.modal .modal-header {
+  background-color: #1030ad;
+  color: #fff;
+}
+
+.modal .close {
+  border: none;
+  color: #fff;
+}
 /*# sourceMappingURL=main.css.map */

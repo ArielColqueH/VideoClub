@@ -49,12 +49,16 @@
           <ul class="navbar-nav ml-auto">
             <!--nav item-->
             <li class="nav-item ">
-              <a class="nav-link text-white " href="./Prestamos.html">Prestamos</a>
+              <a class="nav-link text-white " href="./Prestamos.html"
+                >Prestamos</a
+              >
             </li>
             <!--//nav item-->
             <!--nav item-->
             <li class="nav-item active">
-              <a class="nav-link text-white" href="./Devoluciones.html">Devoluciones</a>
+              <a class="nav-link text-white" href="./Devoluciones.html"
+                >Devoluciones</a
+              >
             </li>
             <!--//nav item-->
             <!--nav item-->
@@ -68,7 +72,9 @@
             </li>
             <!--//nav item-->
             <li class="nav-item">
-              <a class="nav-link text-white" href="./Configuraciones">Configuraciones</a>
+              <a class="nav-link text-white" href="./Configuraciones"
+                >Configuraciones</a
+              >
             </li>
             <!--//nav item-->
           </ul>
@@ -166,7 +172,13 @@
               <td>13/2/2020</td>
               <td>5</td>
               <td>
-                <a class="btn bg-primary-blue text-light">Devolver
+                <button
+                  class="btn bg-primary-blue text-light"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  Devolver
+                </button>
               </td>
             </tr>
           </tbody>
@@ -174,6 +186,55 @@
         <!--//table-->
       </div>
     </div>
+    <!--Modals-->
+    <div class="modal fade" id="exampleModal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title ">Datos para la factura</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group row row-no-margin">
+                <label for="userName" class="col-3">Nombre :</label>
+                <input
+                  type="text"
+                  class="form-control text-center col"
+                  id="userName"
+                  placeholder="Nombre para factura"
+                />
+              </div>
+              <div class="form-group row row-no-margin">
+                <label for="userNit" class="col-3">Nit :</label>
+                <input
+                  type="number"
+                  class="form-control text-center col"
+                  id="userNit"
+                  placeholder="Nit"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">
+              <i class="fas fa-chevron-left mr-2"></i>Atras
+            </button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Siguiente<i class="fas fa-chevron-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--//modals-->
     <script
       src="sass/vendors/bootstrap.min.js"
       crossorigin="anonymous"
