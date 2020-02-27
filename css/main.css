@@ -94,6 +94,10 @@ body {
   color: #1030ad;
 }
 
+.modal {
+  margin-top: 15vh;
+}
+
 .modal .modal-header {
   background-color: #1030ad;
   color: #fff;
