@@ -1,0 +1,30 @@
+{
+  "name": "videoClub",
+  "version": "1.0.0",
+  "description": "Sistema de un videoclub para la renta de videos",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielColqueHerrera1998/VideoClub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arielColqueHerrera1998/VideoClub/issues"
+  },
+  "homepage": "https://github.com/arielColqueHerrera1998/VideoClub#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.9.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
