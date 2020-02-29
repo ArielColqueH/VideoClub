@@ -9,6 +9,8 @@ const app = express();
 //importing routes
 const customerRoutes = require("./routes/customer");
 const clientRoutes = require("./routes/client");
+const prestamoRoutes = require("./routes/prestamo");
+const devolucionRoutes = require("./routes/devolucion");
 
 //settings
 app.set("port", process.env.PORT || 3000);
@@ -35,6 +37,8 @@ app.use(express.urlencoded({extended:false}));
 //routes
 app.use("/", customerRoutes);
 app.use("/clientes", clientRoutes);
+app.use("/prestamos", prestamoRoutes);
+app.use("/devoluciones", devolucionRoutes);
 
 
 //static fields
