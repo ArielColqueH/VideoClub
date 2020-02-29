@@ -3,12 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    <title>Clientes</title>
+    <link rel="stylesheet" href="sass/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/1b489d8525.js"
       crossorigin="anonymous"
-    />
+    ></script>
   </head>
   <body>
+    <!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary-blue">
+  <div class="container">
+    <div class="navbar-header">
+      <!--collapse button-->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--//collapse button-->
+      <!--logo-->
+      <a class="navbar-brand" href="#">
+        <img class="img-fluid" src="img/videoclub.png" width="125" alt="" />
+        <h3 class="d-inline align-middle mx-1 text-light">Videoclub</h3>
+      </a>
+      <!--//logo-->
+    </div>
+    <!--Profile Icon-->
+    <a class="navbar-item  order-lg-last   order-xs-last  mx-1 icon-user">
+      <div class="d-inline circle">
+        <!--Initial letter-->
+        <div class="center">A</div>
+        <!--Initial letter-->
+      </div>
+    </a>
+    <!--//Profile Icon-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <!--nav item-->
+        <li class="nav-item ">
+          <a class="nav-link text-white " href="./Prestamos.html">Prestamos</a>
+        </li>
+        <!--//nav item-->
+        <!--nav item-->
+        <li class="nav-item ">
+          <a class="nav-link text-white" href="./Devoluciones.html"
+            >Devoluciones</a
+          >
+        </li>
+        <!--//nav item-->
+        <!--nav item-->
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="./Clientes.html">Clientes</a>
+        </li>
+        <!--//nav item-->
+        <!--nav item-->
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./Videos.html">Videos</a>
+        </li>
+        <!--//nav item-->
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./Configuraciones"
+            >Configuraciones</a
+          >
+        </li>
+        <!--//nav item-->
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--//navbar-->
+    
