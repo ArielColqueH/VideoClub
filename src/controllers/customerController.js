@@ -34,25 +34,29 @@ controller.delete = (req, res) => {
   });
 };
 
-controller.edit=(req,res)=>{
+controller.edit = (req, res) => {
   const { id } = req.params;
-  req.getConnection((err,conn)=>{
-    conn.query('SELECT * FROM customer where id = ?',[id],(err,customer)=>{
+  req.getConnection((err, conn) => {
+    conn.query("SELECT * FROM customer where id = ?", [id], (err, customer) => {
       console.log(customer);
-      res.render('customer_edit',{
-        data : customer[0]
+      res.render("customer_edit", {
+        data: customer[0]
       });
     });
-  })
+  });
 };
-controller.update=(req,res)=>{
+controller.update = (req, res) => {
   const { id } = req.params;
   const newCustomer = req.body;
-  req.getConnection((err,conn)=>{
-    conn.query('UPDATE customer set ? where id = ?',[newCustomer,id],(err,rows)=>{
-      res.redirect('/');
-    });
-  })
+  req.getConnection((err, conn) => {
+    conn.query(
+      "UPDATE customer set ? where id = ?",
+      [newCustomer, id],
+      (err, rows) => {
+        res.redirect("/");
+      }
+    );
+  });
 };
 
 module.exports = controller;

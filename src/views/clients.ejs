@@ -46,9 +46,10 @@
         <td><%= data[i].date_of_birth %></td>
         <td><%= data[i].address %></td>
         <td><%= data[i].registation_date %></td>
-        <td><a href="/update/<%= data[i].id %>" class="btn btn-primary"
-          >Editar</a
-        ></td>
+        <td>
+          <a href="/update/<%= data[i].id %>" class="btn btn-primary" data-toggle="modal"
+            data-target="#editCliente">Editar</a>
+        </td>
       </tr>
       <% } %> <% } %>
     </tbody>
@@ -68,6 +69,7 @@
 </div>
 
 <!--Modals-->
+<!--agregar cliente modal-->
 <div class="modal fade" id="addCliente" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -163,7 +165,7 @@
           <div class="form-group row row-no-margin mt-3">
             <label for="codigoRenta" class="col"
               ><div class="text-center center">
-                Codigo de Pelicula Rentada :
+                Telefono :
               </div></label
             >
             <input
@@ -199,8 +201,8 @@
             <input
               type="number"
               class="form-control text-center col-6"
-              id="Correo"
-              placeholder="Correo"
+              id="fecha_nacimiento"
+              placeholder="Fecha de Nacimiento"
             />
           </div>
           <!--//Fecha de nacimiento-->
@@ -219,21 +221,36 @@
             />
           </div>
           <!--//Direccion-->
-          <!--Geolocaclizacion-->
+          <!--Longitud-->
           <div class="form-group row row-no-margin mt-3">
-            <label for="codigoRenta"
-              ><div class="text-center center col-6">
-                Geolocalizacion:
+            <label for="longitud" class="col"
+              ><div class="text-center center">
+                Longitud :
               </div></label
             >
             <input
               type="text"
-              class="form-control text-center d-block"
-              id="fechaRegistro"
-              placeholder="Fecha Registro"
+              class="form-control text-center col-6"
+              id="longitud"
+              placeholder="Longitud"
             />
           </div>
-          <!--//Geolocaclizacion-->
+          <!--//Longitud-->
+          <!--Latitud-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Latitud :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="latitud"
+              placeholder="latitud"
+            />
+          </div>
+          <!--//Latitud-->
           <!--Fecha Registro-->
           <div class="form-group row row-no-margin mt-3">
             <label for="codigoRenta" class="col"
@@ -276,6 +293,36 @@
             </div>
           </div>
           <!--//Habilitacion-->
+          <!--Nombre para la factura-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Nombre para la factura :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="nombre_factura"
+              placeholder="Nombre para la factura"
+            />
+          </div>
+          <!--//Nombre para la factura-->
+          <!--Nit-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Nit :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="Nit"
+              placeholder="Nit"
+            />
+          </div>
+          <!--//Nit-->
         </form>
       </div>
       <div class="modal-footer">
@@ -286,5 +333,272 @@
     </div>
   </div>
 </div>
+<!--//agregar cliente modal-->
+<!----------------------------editar cleinte modal------------------------>
+<div class="modal fade" id="editCliente" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title ">Editar Cliente</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <!--Codigo-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Codigo de Cliente :
+              </div></label
+            >
+            <input
+              type="number"
+              class="form-control text-center col-6"
+              id="codigoRenta"
+              placeholder="Codigo"
+            />
+          </div>
+          <!--//Codigo-->
+          <!--Nombre-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Nombre :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="nombre"
+              placeholder="Nombre"
+            />
+          </div>
+          <!--//Nombre-->
+          <!--Apellido P-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Apellido Paterno :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="apellidoPaterno"
+              placeholder="Apellido Paterno"
+            />
+          </div>
+          <!--//Apellido P-->
+          <!--Apellido M-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Apellido Materno :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="apellidoMaterno"
+              placeholder="Apellido Materno"
+            />
+          </div>
+          <!--//Apellido M-->
+          <!--Carnet ID-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Carnet :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="carnetId"
+              placeholder="Carnet ID"
+            />
+          </div>
+          <!--//Apellido Materno-->
+          <!--Telefono-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Telefono :
+              </div></label
+            >
+            <input
+              type="number"
+              class="form-control text-center col-6"
+              id="Telefono"
+              placeholder="Telefono"
+            />
+          </div>
+          <!--//Telefono-->
+          <!--Correo-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Correo :
+              </div></label
+            >
+            <input
+              type="email"
+              class="form-control text-center col-6"
+              id="Correo"
+              placeholder="Correo"
+            />
+          </div>
+          <!--//Correo-->
+          <!--Fecha de nacimiento-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Fecha de nacimiento :
+              </div></label
+            >
+            <input
+              type="number"
+              class="form-control text-center col-6"
+              id="fecha_nacimiento"
+              placeholder="Fecha de Nacimiento"
+            />
+          </div>
+          <!--//Fecha de nacimiento-->
+          <!--Direccion-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Direccion :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="direccion"
+              placeholder="Direccion"
+            />
+          </div>
+          <!--//Direccion-->
+          <!--Longitud-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="longitud" class="col"
+              ><div class="text-center center">
+                Longitud :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="longitud"
+              placeholder="Longitud"
+            />
+          </div>
+          <!--//Longitud-->
+          <!--Latitud-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Latitud :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="latitud"
+              placeholder="latitud"
+            />
+          </div>
+          <!--//Latitud-->
+          <!--Fecha Registro-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Fecha Registro :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="fechaRegistro"
+              placeholder="Fecha Registro"
+            />
+          </div>
+          <!--//Fecha Registro-->
+          <!--Habilitacion-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Habilitado :
+              </div></label
+            >
+            <div class="form-check col-3">
+              <label class="form-check-label ">
+                <input
+                  type="radio"
+                  class="form-check-input "
+                  name="optradio"
+                />Si
+              </label>
+            </div>
+            <div class="form-check col-3">
+              <label class="form-check-label">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="optradio"
+                />No
+              </label>
+            </div>
+          </div>
+          <!--//Habilitacion-->
+          <!--Nombre para la factura-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Nombre para la factura :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="nombre_factura"
+              placeholder="Nombre para la factura"
+            />
+          </div>
+          <!--//Nombre para la factura-->
+          <!--Nit-->
+          <div class="form-group row row-no-margin mt-3">
+            <label for="codigoRenta" class="col"
+              ><div class="text-center center">
+                Nit :
+              </div></label
+            >
+            <input
+              type="text"
+              class="form-control text-center col-6"
+              id="Nit"
+              placeholder="Nit"
+            />
+          </div>
+          <!--//Nit-->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Guardar Datos Editados<i class="fas fa-check ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//editar cleinte modal-->
+
 <!--//modals-->
 <%-include ('partials/_footer')%>
