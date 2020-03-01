@@ -29,7 +29,7 @@ body {
   font-size: 1.2rem;
 }
 
-.navbar .nav-item.active {
+.navbar .nav-item .active {
   border-bottom: 2.5px solid #fff;
 }
 

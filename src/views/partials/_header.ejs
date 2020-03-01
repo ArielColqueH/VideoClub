@@ -49,19 +49,26 @@
           <ul class="navbar-nav ml-auto">
             <!--nav item-->
             <li class="nav-item ">
+              <div <% if(active=="prestamos"){ %> class="active" <% } %>>
               <a class="nav-link text-white " href="/prestamos">Prestamos</a>
+            </div>
             </li>
             <!--//nav item-->
             <!--nav item-->
-            <li class="nav-item ">
+            <li class="nav-item">
+              <div <% if(active=="devoluciones"){ %> class="active" <% } %>>
               <a class="nav-link text-white" href="/devoluciones"
                 >Devoluciones</a
               >
+            </div>
             </li>
             <!--//nav item-->
             <!--nav item-->
-            <li class="nav-item active">
+            
+            <li class="nav-item">
+              <div <% if(active=="clientes"){ %> class="active" <% } %>>
               <a class="nav-link text-white" href="/clientes">Clientes</a>
+              </div>
             </li>
             <!--//nav item-->
             <!--nav item-->
