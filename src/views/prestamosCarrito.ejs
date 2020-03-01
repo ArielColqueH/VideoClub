@@ -1,0 +1,132 @@
+<%-include ('partials/_header') %>
+<div class="container">
+  <div class="row row-no-margin my-4">
+    <!--title page-->
+    <h2 class="text-primary-blue">
+      Detalles de Pedido
+    </h2>
+    <!--//title page-->
+    <!--cart icon-->
+    <a href="./DetallesPedido.html" class="cart ml-auto">
+      <i class="fas fa-shopping-cart fa-3x "></i>
+      <h1 class="d-inline ml-3">0</h1>
+    </a>
+    <!--//cart icon-->
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <!--table-->
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-blue">
+            <tr class="text-white text-center">
+              <th scope="col">Nombre de Pelicula</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Fecha de Solicitud</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <th>1</th>
+              <td>Jojo Rabbit</td>
+              <td>5</td>
+              <td>
+                <button class="btn bg-primary-blue text-light">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr class="text-center">
+              <th>1</th>
+              <td>Jojo Rabbit</td>
+              <td>5</td>
+              <td>
+                <button class="btn bg-primary-blue text-light">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--//table-->
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <p>Fecha de Prestamo</p>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col">
+          <p>Fecha de Devolucion</p>
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="my-3">Precio del producto : 3 Bs</h3>
+  <div class="row">
+    <a href="" class="btn bg-secondary text-light ml-3"
+      ><i class="fas fa-chevron-left mr-2"></i> Atras</a
+    >
+    <button
+      class="btn bg-primary-blue text-light ml-3"
+      data-toggle="modal"
+      data-target="#invoice"
+    >
+      Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
+    </button>
+  </div>
+</div>
+
+<!--Modals-->
+<div class="modal fade" id="invoice" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title ">Datos para la factura</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-group row row-no-margin">
+            <label for="userName" class="col-3">Nombre :</label>
+            <input
+              type="text"
+              class="form-control text-center col"
+              id="userName"
+              placeholder="Nombre para factura"
+            />
+          </div>
+          <div class="form-group row row-no-margin">
+            <label for="userNit" class="col-3">Nit :</label>
+            <input
+              type="number"
+              class="form-control text-center col"
+              id="userNit"
+              placeholder="Nit"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">
+          <i class="fas fa-chevron-left mr-2"></i>Atras
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Siguiente<i class="fas fa-chevron-right ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//modals-->
+<%-include ('partials/_footer')%>

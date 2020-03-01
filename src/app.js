@@ -10,6 +10,7 @@ const app = express();
 const customerRoutes = require("./routes/customer");
 const clientRoutes = require("./routes/client");
 const prestamoRoutes = require("./routes/prestamo");
+//const prestamoCarritoRoutes = require("./routes/prestamoCarrito");
 const devolucionRoutes = require("./routes/devolucion");
 
 //settings
@@ -37,9 +38,13 @@ app.use(express.urlencoded({extended:false}));
 
 //routes
 app.use("/", customerRoutes);
-app.use("/clientes", clientRoutes);
 app.use("/prestamos", prestamoRoutes);
+//app.use("/prestamos/carrito", prestamoCarritoRoutes);
 app.use("/devoluciones", devolucionRoutes);
+app.use("/clientes", clientRoutes);
+
+
+
 
 
 //static fields
