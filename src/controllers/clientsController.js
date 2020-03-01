@@ -2,7 +2,7 @@ const controller = {};
 
 controller.list = (req, res) => {
   req.getConnection((err, conn) => {
-    conn.query('select a.id_client, b.fathers_last_name,b.mothers_last_name,b.first_name, a.cellphone_number,a.date_of_birth,a.address,a.registation_date from client a, person b where a.id_person=b.id_person', (err, client) => {
+    conn.query('select a.id_client, b.fathers_last_name,b.mothers_last_name,b.first_name, a.cellphone_number,a.mail,a.date_of_birth,a.address,a.registation_date from client a, person b where a.id_person=b.id_person', (err, client) => {
       if (err) {
         res.json(err);
       } else {
