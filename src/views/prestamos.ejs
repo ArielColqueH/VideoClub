@@ -38,9 +38,20 @@
       <!--//dropdown principal-->
       <!--drop item-->
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item">Opcion 1</a>
-        <a class="dropdown-item">Opcion 2</a>
-        <a class="dropdown-item">Opcion 3</a>
+        <a class="dropdown-item">Comedia</a>
+        <a class="dropdown-item">Drama</a>
+        <a class="dropdown-item">Thriler</a>
+        <a class="dropdown-item">Terror</a>
+        <a class="dropdown-item">Ciencia Ficcion</a>
+        <a class="dropdown-item">Accion</a>
+        <a class="dropdown-item">Aventura</a>
+        <a class="dropdown-item">Musicales</a>
+        <a class="dropdown-item">Belicas</a>
+        <a class="dropdown-item">Peliculas del oeste</a>
+        <a class="dropdown-item">Comedia</a>
+        <a class="dropdown-item">Drama</a>
+        <a class="dropdown-item">Suspenso</a>
+        <a class="dropdown-item">Superheroes</a>
       </div>
       <!--//drop item-->
     </div>
@@ -79,37 +90,25 @@
           <th scope="col">Nombre de Pelicula</th>
           <th scope="col">Genero</th>
           <th scope="col">Actores/Actrices</th>
-          <th scope="col">Nom. al Oscar</th>
-          <th scope="col">Fecha de Registro</th>
+          <!--<th scope="col">Nom. al Oscar</th>-->
+          <!--<th scope="col">Fecha de Registro</th>-->
           <th scope="col">Disponibles</th>
           <th scope="col">Añadir</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="text-center">
-          <th>1</th>
-          <td>Jojo Rabbit</td>
-          <td>Comedia/Drama</td>
-          <td>Scarlett Johansson</td>
-          <td>3</td>
-          <td>13/2/2020</td>
-          <td>5</td>
+          <% if(data){ %> <% for (var i=0 ; i< data.length ; i++){ %>
+            <tr class="text-center">
+              <td><%= data[i].id_video %></td>
+              <td><%= data[i].video_title %></td>
+              <td><%= data[i].genre %></td>
+              <td><%= data[i].first_name +' '+data[i].last_name %></td>
+              <td><%= data[i].stock %></td>
           <td>
             <button class="btn bg-primary-blue text-light">Añadir</button>
           </td>
         </tr>
-        <tr class="text-center">
-          <th>1</th>
-          <td>Jojo Rabbit</td>
-          <td>Comedia/Drama</td>
-          <td>Scarlett Johansson</td>
-          <td>3</td>
-          <td>13/2/2020</td>
-          <td>5</td>
-          <td>
-            <button class="btn bg-primary-blue text-light">Añadir</button>
-          </td>
-        </tr>
+        <% } %> <% } %>
       </tbody>
     </table>
     <!--//table-->
