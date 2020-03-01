@@ -27,7 +27,8 @@ app.use(
       user: "root",
       password: "",
       port: 3306,
-      database: "video_club"
+      database: "video_club",
+      dateStrings: 'date'
     },
     "single"
   )
