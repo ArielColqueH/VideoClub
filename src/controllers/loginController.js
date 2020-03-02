@@ -10,8 +10,7 @@ controller.signin = (req, res) => {
           res.json(err);
         } else {
           //console.log(actor);
-          
-          res.render("login", {
+          res.render("/login", {
             data: adm
           });
         }

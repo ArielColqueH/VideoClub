@@ -6,7 +6,7 @@ controller.list = (req, res) => {
       if (err) {
         res.json(err);
       } else {
-        console.log(client);
+        //console.log(client);
         res.render("clients", {
           data: client
         });

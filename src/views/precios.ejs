@@ -1,5 +1,5 @@
-<%-include ('partials/_header', {active: "prestamos"}); %>
-<div class="container ">
+<%-include ('partials/_header', {active: "precios"}); %>
+<div class="container">
   <div class="row row-no-margin my-4">
     <!--title page-->
     <h2 class="text-primary-blue">
@@ -16,6 +16,7 @@
           <th scope="col">Código</th>
           <th scope="col">Nro. de Días</th>
           <th scope="col">Precio (Bs.)</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -96,3 +97,4 @@
     </div>
   </div>
   <!--Editar precio Modal-->
+  <%-include ('partials/_footer')%>
