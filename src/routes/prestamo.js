@@ -6,5 +6,5 @@ const prestamosCarritoController = require("../controllers/prestamosCarritoContr
 
 router.get("/", prestamosController.list);
 router.get("/carrito", prestamosCarritoController.list);
-
+router.get("/agregar_carrito/:id", prestamosCarritoController.list);
 module.exports = router;
