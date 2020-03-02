@@ -70,24 +70,21 @@
       <thead class="thead-blue">
         <tr class="text-white text-center">
           <th scope="col">Codigo</th>
-          <th scope="col">Nombre de Pelicula</th>
-          <th scope="col">Genero</th>
-          <th scope="col">Actores/Actrices</th>
-          <th scope="col">Nom. al Oscar</th>
-          <th scope="col">Fecha de Registro</th>
-          <th scope="col">Disponibles</th>
+          <th scope="col">Fecha de renta</th>
+          <th scope="col">Fecha de Devolución</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Estado</th>
           <th scope="col">Devolver</th>
         </tr>
       </thead>
       <tbody>
+        <% if(data){ %> <% for (var i=0 ; i< data.length ; i++){ %>
         <tr class="text-center">
-          <th>1</th>
-          <td>Jojo Rabbit</td>
-          <td>Comedia/Drama</td>
-          <td>Scarlett Johansson</td>
-          <td>3</td>
-          <td>13/2/2020</td>
-          <td>5</td>
+          <th><%=data[i].id_rental%></th>
+          <td><%=data[i].start_date%></td>
+          <td><%=data[i].devolution_date%></td>
+          <td><%=data[i].first_name+' '+data[i].fathers_last_name+' '+data[i].mothers_last_name%></td>
+          <td><%=data[i].status_name%></td>
           <td>
             <button
               class="btn bg-primary-blue text-light"
@@ -98,6 +95,7 @@
             </button>
           </td>
         </tr>
+        <%}}%>
       </tbody>
     </table>
     <!--//table-->
