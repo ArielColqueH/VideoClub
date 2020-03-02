@@ -12,7 +12,7 @@ const clientRoutes = require("./routes/client");
 const prestamoRoutes = require("./routes/prestamo");
 //const prestamoCarritoRoutes = require("./routes/prestamoCarrito");
 const devolucionRoutes = require("./routes/devolucion");
-
+const loginRoutes = require("./routes/login");
 //settings
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -42,7 +42,7 @@ app.use("/prestamos", prestamoRoutes);
 //app.use("/prestamos/carrito", prestamoCarritoRoutes);
 app.use("/devoluciones", devolucionRoutes);
 app.use("/clientes", clientRoutes);
-
+app.use("/login",loginRoutes);
 
 
 
