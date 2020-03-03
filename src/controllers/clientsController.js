@@ -6,7 +6,7 @@ controller.list = (req, res) => {
       if (err) {
         res.json(err);
       } else {
-        console.log(client);
+        //console.log(client);
         res.render("clients", {
           data: client
         });
@@ -37,7 +37,7 @@ controller.update=(req,res)=>{
   const {id} = req.params;
   const new_client = req.body;
   req.getConnection((err,conn)=>{
-    conn.query('UPDATE customer set ? where id = ?',[newCustomer,id],(err,rows)=>{
+    conn.query('UPDATE customer set ? where id = ?',[new_client,id],(err,rows)=>{
       res.redirect('/');
   });
 })

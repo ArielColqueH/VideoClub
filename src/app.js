@@ -8,13 +8,13 @@ const app = express();
 
 //importing routes
 const customerRoutes = require("./routes/customer");
+const loginRoutes = require("./routes/login");
 const clientRoutes = require("./routes/client");
 const prestamoRoutes = require("./routes/prestamo");
-//const prestamoCarritoRoutes = require("./routes/prestamoCarrito");
 const devolucionRoutes = require("./routes/devolucion");
-const loginRoutes = require("./routes/login");
 const preciosRoutes = require("./routes/precios");
 const videoRoutes = require("./routes/videos");
+const prestamoCarritoRoutes = require('./routes/prestamo');
 //settings
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -40,12 +40,12 @@ app.use(express.urlencoded({extended:false}));
 
 //routes
 app.use("/", customerRoutes);
+app.use("/login", loginRoutes);
 app.use("/prestamos", prestamoRoutes);
 app.use("/videos", videoRoutes);
-//app.use("/prestamos/carrito", prestamoCarritoRoutes);
+app.use("/prestamos/carrito", prestamoRoutes);
 app.use("/devoluciones", devolucionRoutes);
 app.use("/clientes", clientRoutes);
-app.use("/login",loginRoutes);
 app.use("/configuraciones",preciosRoutes);
 
 

@@ -8,13 +8,22 @@
     <!--//title page-->
   </div>
   <div class="row filter-tools my-4 row-no-margin">
+    <!--search-->
     <!--input movies-->
-    <input
-      type="text"
-      class="form-control d-inline w-50 text-center"
-      placeholder="Ingrese el nombre de la pelicula o actor"
-    />
-    <!--//input movies-->
+    <div class="input-group w-50">
+      <input
+        type="text"
+        class="form-control d-inline  text-center"
+        placeholder="Ingrese el nombre de la pelicula o actor"
+      />
+      <!--//input movies-->
+      <!--btn search-->
+      <button class="btn btn-primary input-group-append">
+        <i class="fas fa-search"></i>
+      </button>
+      <!--//btn search-->
+    </div>
+    <!--//search-->
     <!--dropwdown genero-->
     <div class="dropdown ml-3">
       <!--dropdown principal-->
@@ -74,7 +83,7 @@
           <th scope="col">Fecha de Devolución</th>
           <th scope="col">Cliente</th>
           <th scope="col">Estado</th>
-          <th scope="col">Devolver</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -83,7 +92,10 @@
           <th><%=data[i].id_rental%></th>
           <td><%=data[i].start_date%></td>
           <td><%=data[i].devolution_date%></td>
-          <td><%=data[i].first_name+' '+data[i].fathers_last_name+' '+data[i].mothers_last_name%></td>
+          <td>
+            <%=data[i].first_name%> <%=data[i].fathers_last_name%>
+            <%=data[i].mothers_last_name%>
+          </td>
           <td><%=data[i].status_name%></td>
           <td>
             <button

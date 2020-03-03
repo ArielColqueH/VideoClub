@@ -31,7 +31,7 @@
           <!--//collapse button-->
           <!--logo-->
           <a class="navbar-brand" href="#">
-            <img class="img-fluid" src="img/videoclub.png" width="125" alt="" />
+            <img class="img-fluid" src="/img/videoclub.png" width="125" alt="" />
             <h3 class="d-inline align-middle mx-1 text-light">Videoclub</h3>
           </a>
           <!--//logo-->
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <!--nav item-->
-            <li class="nav-item ">
+            <li class="nav-item">
               <div <% if(active=="prestamos"){ %> class="active" <% } %>>
               <a class="nav-link text-white " href="/prestamos">Prestamos</a>
             </div>
@@ -78,9 +78,11 @@
             <!--//nav item-->
 
             <li class="nav-item">
-              <a class="nav-link text-white" href="./Configuraciones"
+              <div <% if(active=="precios"){ %> class="active" <% } %>>
+              <a class="nav-link text-white" href="/configuraciones"
                 >Configuraciones</a
               >
+            </div>
             </li>
             <!--//nav item-->
           </ul>
@@ -88,5 +90,4 @@
       </div>
     </nav>
     <!--//navbar-->
-  </body>
-</html>
+

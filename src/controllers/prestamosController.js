@@ -14,5 +14,18 @@ controller.list = (req, res) => {
   });
 };
 
-
+controller.add = (req, res) => {
+  const data = req.body;
+  req.getConnection((err, conn) => {
+    conn.query("INSERT INTO rental SET ?",[data],(err, rent) => {
+      if (err) {
+        res.json(err);
+      } else {
+        console.log(video);
+        list.add(video);
+        res.redirect("prestamos");
+      }
+    });
+  });
+};
   module.exports = controller;

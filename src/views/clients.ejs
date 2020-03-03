@@ -8,13 +8,22 @@
     <!--//title page-->
   </div>
   <div class="row filter-tools my-4 row-no-margin">
+    <!--search-->
     <!--input movies-->
-    <input
-      type="text"
-      class="form-control d-inline w-50 text-center"
-      placeholder="Ingrese el nombre del cliente"
-    />
-    <!--//input movies-->
+    <div class="input-group w-50">
+      <input
+        type="text"
+        class="form-control d-inline  text-center"
+        placeholder="Ingrese el nombre de la pelicula o actor"
+      />
+      <!--//input movies-->
+      <!--btn search-->
+      <button class="btn btn-primary input-group-append">
+        <i class="fas fa-search"></i>
+      </button>
+      <!--//btn search-->
+    </div>
+    <!--//search-->
   </div>
 </div>
 <!--table-->
@@ -31,7 +40,7 @@
         <th scope="col">Fecha de Nacimiento</th>
         <th scope="col">Direccion</th>
         <th scope="col">Fecha Registro</th>
-        <th scope="col">Editar</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -47,8 +56,13 @@
         <td><%= data[i].address %></td>
         <td><%= data[i].registation_date %></td>
         <td>
-          <a href="/update/<%= data[i].id %>" class="btn btn-primary" data-toggle="modal"
-            data-target="#editCliente">Editar</a>
+          <a
+            href="/update/<%= data[i].id %>"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#editCliente"
+            >Editar</a
+          >
         </td>
       </tr>
       <% } %> <% } %>
