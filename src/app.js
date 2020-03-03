@@ -3,12 +3,13 @@ const path = require("path");
 const morgan = require("morgan");
 const mysql = require("mysql");
 const myConnection = require("express-myconnection");
-
+const bodyParser = require("body-parser");
 const app = express();
 
 //importing routes
 const customerRoutes = require("./routes/customer");
 const loginRoutes = require("./routes/login");
+//const authRoutes = require("./routes/auth");
 const clientRoutes = require("./routes/client");
 const prestamoRoutes = require("./routes/prestamo");
 const devolucionRoutes = require("./routes/devolucion");
@@ -17,6 +18,8 @@ const preciosRoutes = require("./routes/precios");
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+
 
 //middleweares
 app.use(morgan("dev"));
@@ -29,29 +32,31 @@ app.use(
       password: "",
       port: 3306,
       database: "video_club",
-      dateStrings: 'date'
+      dateStrings: "date"
     },
     "single"
   )
 );
-app.use(express.urlencoded({extended:false}));
+ // to support JSON-encoded bodies
+ 
+ app.use(bodyParser.urlencoded({ extended: false }))
 
+ // parse application/json
+ app.use(bodyParser.json())
 //routes
-app.use("/", customerRoutes);
-app.use("/login", loginRoutes);
+//app.use("/", customerRoutes);
+app.use("/", loginRoutes);
+//app.use("/auth", authRoutes);
 app.use("/prestamos", prestamoRoutes);
 app.use("/devoluciones", devolucionRoutes);
 app.use("/clientes", clientRoutes);
-app.use("/configuraciones",preciosRoutes);
-
-
+app.use("/configuraciones", preciosRoutes);
 
 //static fields
-
 app.use(express.static(path.join(__dirname, "public")));
-
 //starting the server
 
 app.listen(app.get("port"), () => {
   console.log("Server on port 3000");
 });
+

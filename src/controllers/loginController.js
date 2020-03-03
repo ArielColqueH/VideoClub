@@ -1,21 +1,37 @@
 const controller = {};
 
 controller.signin = (req, res) => {
-    const { user } = req.params;
-    const { password } = req.params;
-    const data =req.body;
-    req.getConnection((err, conn) => {
-      conn.query("SELECT * FROM administrator where user = ? and password = ?", [user,password],(err, adm) => {
-        if (err) {
-          res.json(err);
-        } else {
-          //console.log(actor);
-          res.render("/login", {
-            data: adm
-          });
+  req.getConnection((err, conn) => {
+    res.render("login");
+  });
+};
+controller.verify = (req, res) => {
+  var username = req.body.username;
+  var password = req.body.password;
+  //console.log(username);
+  //console.log(password);
+  req.getConnection((err, conn) => {
+    if (username && password) {
+      conn.query(
+        "SELECT * FROM administrator WHERE user = ? AND password = ?",
+        [username, password],
+        function(err, results,fields) {
+          if (results.length > 0) {
+            console.log("here");
+            //req.session.loggedin = true;
+            //req.session.username = username;
+            res.redirect("/prestamos");
+          } else {
+            res.send("Incorrect Username and/or Password!");
+          }
+          res.end();
         }
-      });
-    });
-  };
+      );
+    } else {
+      res.send("Please enter Username and Password!");
+      res.end();
+    }
+  });
+};
 
 module.exports = controller;

@@ -12,29 +12,43 @@
             class="fas fa-user-circle fa-9x mx-auto my-3 text-primary-blue"
           ></i>
         </div>
-        <form class="px-5" action="/signin" method="POST">
-          <div class="form-group">
-            <label for="userName">Usuario :</label>
+        <form class="px-5" action="/authi" method="post">
+          <!--Nombre-->
+          <div class="form-group row row-no-margin mt-3">
+            <label class="col"
+              ><div class="text-center center">
+                Nombre:
+              </div></label
+            >
             <input
               type="text"
-              class="form-control text-center"
-              id="userName"
-              placeholder="Nombre de usuario"
+              class="form-control text-center col-md-8"
+              name="username"
+              placeholder="Nombre"
             />
           </div>
-          <div class="form-group">
-            <label for="userPassword">Contraseña :</label>
+          <!--//Nombre-->
+          <!--Contrasena-->
+          <div class="form-group row row-no-margin mt-3">
+            <label class="col"
+              ><div class="text-center center">
+                Contraseña:
+              </div></label
+            >
             <input
-              type="password"
-              class="form-control text-center"
-              id="userPassword"
+              type="text"
+              class="form-control text-center col-md-8"
+              name="password"
               placeholder="Contraseña"
             />
           </div>
+          <!--//Contrasena-->
           <div class="row">
-            <button type="submit" class="btn btn-primary mx-auto">
-              Ingresar
-            </button>
+            <input
+              type="submit"
+              value="Submit"
+              class="btn btn-primary mx-auto"
+            />
           </div>
         </form>
       </div>
