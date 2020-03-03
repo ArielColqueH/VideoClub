@@ -18,7 +18,7 @@ controller.save=(req,res)=>{
   const data = req.body;
   req.getConnection((err,conn)=>{
     conn.query('INSERT INTO client SET ?',[data],(err,client)=>{
-      res.redirect("/");
+      res.redirect("clients");
     });
   })
 };
@@ -26,7 +26,7 @@ controller.edit=(req,res)=>{
   const { id }=req.params;
  req.getConnection((err,conn)=>{
   conn.query('SELECT * FROM client wWHERE id =?',[id],(err,client)=>{
-    res.render('',{
+    res.render('clients',{
       data: client[0]
     });
   });
@@ -37,8 +37,8 @@ controller.update=(req,res)=>{
   const {id} = req.params;
   const new_client = req.body;
   req.getConnection((err,conn)=>{
-    conn.query('UPDATE customer set ? where id = ?',[newCustomer,id],(err,rows)=>{
-      res.redirect('/');
+    conn.query('UPDATE customer set ? where id = ?',[new_client,id],(err,rows)=>{
+      res.redirect('clients');
   });
 })
 }

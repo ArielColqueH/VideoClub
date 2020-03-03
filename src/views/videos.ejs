@@ -1,5 +1,4 @@
 <%-include ('partials/_header', {active: "prestamos"}); %>
-<%var videoList = new Array();%>
 <div class="container ">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -8,31 +7,20 @@
     </h2>
     <!--//title page-->
     <!--cart icon-->
-    <% var cont=0; %>
-    <a href="/prestamos/carrito" class="cart ml-auto">
+    <a href="prestamos/carrito" class="cart ml-auto">
       <i class="fas fa-shopping-cart fa-3x "></i>
-      <h1 class="d-inline ml-3"><%=videoList.length;%></h1>
+      <h1 class="d-inline ml-3">0</h1>
     </a>
     <!--//cart icon-->
   </div>
-
   <div class="row filter-tools my-4 row-no-margin">
-    <!--search-->
     <!--input movies-->
-    <div class="input-group w-50">
-      <input
-        type="text"
-        class="form-control d-inline  text-center"
-        placeholder="Ingrese el nombre de la pelicula o actor"
-      />
-      <!--//input movies-->
-      <!--btn search-->
-      <button class="btn btn-primary input-group-append">
-        <i class="fas fa-search"></i>
-      </button>
-      <!--//btn search-->
-    </div>
-    <!--//search-->
+    <input
+      type="text"
+      class="form-control d-inline w-50 text-center"
+      placeholder="Ingrese el nombre de la pelicula o actor"
+    />
+    <!--//input movies-->
     <!--dropwdown genero-->
     <div class="dropdown ml-3">
       <!--dropdown principal-->
@@ -109,22 +97,20 @@
           <th scope="col">Nombre de Pelicula</th>
           <th scope="col">Genero</th>
           <th scope="col">Actores/Actrices</th>
-          <!--<th scope="col">Nom. al Oscar</th>-->
-          <!--<th scope="col">Fecha de Registro</th>-->
           <th scope="col">Disponibles</th>
-          <th scope="col">Añadir</th>
+          <th scope="col">Añadir Copias</th>
         </tr>
       </thead>
       <tbody>
-        <% if(data){ %> <% for (var i=0 ; i< data.length ; i++){ %>
-        <tr class="text-center">
-          <td><%= data[i].id_video %></td>
-          <td><%= data[i].video_title %></td>
-          <td><%= data[i].genre %></td>
-          <td><%= data[i].first_name +' '+data[i].last_name %></td>
-          <td><%= data[i].stock %></td>
+          <% if(data){ %> <% for (var i=0 ; i< data.length ; i++){ %>
+            <tr class="text-center">
+              <td><%= data[i].id_video %></td>
+              <td><%= data[i].video_title %></td>
+              <td><%= data[i].genre %></td>
+              <td><%= data[i].first_name +' '+data[i].last_name %></td>
+              <td><%= data[i].stock %></td>
           <td>
-            <a class="btn bg-primary-blue text-light" href="/add_card/<%= data[i].id %>">Añadir</a>
+            <button class="btn bg-primary-blue text-light">Añadir</button>
           </td>
         </tr>
         <% } %> <% } %>
