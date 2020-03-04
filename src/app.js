@@ -10,7 +10,6 @@ var session = require("express-session");
 //importing routes
 const customerRoutes = require("./routes/customer");
 const loginRoutes = require("./routes/login");
-//const authRoutes = require("./routes/auth");
 const clientRoutes = require("./routes/client");
 const prestamoRoutes = require("./routes/prestamo");
 const devolucionRoutes = require("./routes/devolucion");
@@ -53,10 +52,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+
+
 //routes
-//app.use("/", customerRoutes);
 app.use("/", loginRoutes);
-//app.use("/auth", authRoutes);
 app.use("/prestamos", prestamoRoutes);
 app.use("/videos", videoRoutes);
 app.use("/prestamos/carrito", prestamoRoutes);

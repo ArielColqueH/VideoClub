@@ -39,7 +39,7 @@ Array();%>
     <!--dropwdown genero-->
     <div class="dropdown show ml-3">
       <a
-        class="btn btn-primary dropdown-toggle"
+        class="btn dropdown-toggle"
         href="#"
         role="button"
         id="dropdownMenuLink"
@@ -51,7 +51,9 @@ Array();%>
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <% if(data2){ %> <% for (var i=0 ; i< data2.length ; i++){ %>
-          <a class="dropdown-item" href="#"><%= data2[i].genre %></a>
+        <a class="dropdown-item" href="/prestamos/<%= data2[i].genre %>"
+          ><%= data2[i].genre %></a
+        >
         <% } %> <% } %>
       </div>
     </div>
