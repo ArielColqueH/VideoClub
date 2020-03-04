@@ -6,6 +6,7 @@ const myConnection = require("express-myconnection");
 const bodyParser = require("body-parser");
 const app = express();
 var session = require("express-session");
+
 //importing routes
 const customerRoutes = require("./routes/customer");
 const loginRoutes = require("./routes/login");
@@ -15,21 +16,21 @@ const prestamoRoutes = require("./routes/prestamo");
 const devolucionRoutes = require("./routes/devolucion");
 const preciosRoutes = require("./routes/precios");
 const videoRoutes = require("./routes/videos");
-const prestamoCarritoRoutes = require('./routes/prestamo');
+const prestamoCarritoRoutes = require("./routes/prestamo");
 
-'use strict'
-const cookieParser = require('cookie-parser');
+("use strict");
+const cookieParser = require("cookie-parser");
 //settings
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
-
 //middleweares
-app.use(session({
-  secret: "1545ddfddcdcx15",
-}));
+app.use(
+  session({
+    secret: "1545ddfddcdcx15"
+  })
+);
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(
@@ -46,12 +47,12 @@ app.use(
     "single"
   )
 );
- // to support JSON-encoded bodies
- 
- app.use(bodyParser.urlencoded({ extended: false }))
+// to support JSON-encoded bodies
 
- // parse application/json
- app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 //routes
 //app.use("/", customerRoutes);
 app.use("/", loginRoutes);
@@ -70,4 +71,3 @@ app.use(express.static(path.join(__dirname, "public")));
 app.listen(app.get("port"), () => {
   console.log("Server on port 3000");
 });
-

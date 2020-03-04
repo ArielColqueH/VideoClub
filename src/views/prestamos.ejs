@@ -37,10 +37,9 @@ Array();%>
     </form>
 
     <!--dropwdown genero-->
-    <div class="dropdown ml-3">
-      <!--dropdown principal-->
+    <div class="dropdown show ml-3">
       <a
-        class="btn dropdown-toggle"
+        class="btn btn-primary dropdown-toggle"
         href="#"
         role="button"
         id="dropdownMenuLink"
@@ -50,25 +49,13 @@ Array();%>
       >
         Genero
       </a>
-      <!--//dropdown principal-->
-      <!--drop item-->
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item">Comedia</a>
-        <a class="dropdown-item">Drama</a>
-        <a class="dropdown-item">Thriler</a>
-        <a class="dropdown-item">Terror</a>
-        <a class="dropdown-item">Ciencia Ficcion</a>
-        <a class="dropdown-item">Accion</a>
-        <a class="dropdown-item">Aventura</a>
-        <a class="dropdown-item">Musicales</a>
-        <a class="dropdown-item">Belicas</a>
-        <a class="dropdown-item">Peliculas del oeste</a>
-        <a class="dropdown-item">Comedia</a>
-        <a class="dropdown-item">Suspenso</a>
-        <a class="dropdown-item">Superheroes</a>
+        <% if(data2){ %> <% for (var i=0 ; i< data2.length ; i++){ %>
+          <a class="dropdown-item" href="#"><%= data2[i].genre %></a>
+        <% } %> <% } %>
       </div>
-      <!--//drop item-->
     </div>
+
     <!--//dropwdown genero-->
     <!--dropwdown oscar prize's-->
     <div class="dropdown ml-3">
@@ -127,9 +114,21 @@ Array();%>
           <td><%= data[i].genre %></td>
           <td><%= data[i].first_name +' '+data[i].last_name %></td>
           <td><%= data[i].stock %></td>
-          <td><input type="number" class="form-control" min ="1" max ="<%=data[i].stock%>" value ="1" /></td>
           <td>
-            <a class="btn bg-primary-blue text-light" href="/prestamos/agregar_carrito/<%=data[i].id_video%>">Añadir</a>
+            <input
+              type="number"
+              class="form-control"
+              min="1"
+              max="<%=data[i].stock%>"
+              value="1"
+            />
+          </td>
+          <td>
+            <a
+              class="btn bg-primary-blue text-light"
+              href="/prestamos/agregar_carrito/<%=data[i].id_video%>"
+              >Añadir</a
+            >
           </td>
         </tr>
         <% } %> <% } %>
