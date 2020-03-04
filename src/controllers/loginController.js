@@ -15,7 +15,7 @@ controller.verify = (req, res) => {
       conn.query(
         "SELECT * FROM administrator WHERE user = ? AND password = ?",
         [username, password],
-        function(err, results,fields) {
+        function(err, results, fields) {
           if (results.length > 0) {
             console.log("here");
             //req.session.loggedin = true;
@@ -23,6 +23,7 @@ controller.verify = (req, res) => {
             res.redirect("/prestamos");
           } else {
             res.send("Incorrect Username and/or Password!");
+            res.redirect("/");
           }
           res.end();
         }

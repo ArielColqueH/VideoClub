@@ -1,5 +1,5 @@
-<%-include ('partials/_header', {active: "prestamos"}); %>
-<%var videoList = new Array();%>
+<%-include ('partials/_header', {active: "prestamos"}); %> <%var videoList = new
+Array();%>
 <div class="container ">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -17,12 +17,13 @@
   </div>
 
   <div class="row filter-tools my-4 row-no-margin">
-    <!--search-->
-    <!--input movies-->
-    <div class="input-group w-50">
+    <form action="/prestamos/searchWord" method="post" class="input-group w-50">
+      <!--search-->
+      <!--input movies-->
       <input
         type="text"
         class="form-control d-inline  text-center"
+        name="word"
         placeholder="Ingrese el nombre de la pelicula o actor"
       />
       <!--//input movies-->
@@ -31,8 +32,10 @@
         <i class="fas fa-search"></i>
       </button>
       <!--//btn search-->
-    </div>
-    <!--//search-->
+
+      <!--//search-->
+    </form>
+
     <!--dropwdown genero-->
     <div class="dropdown ml-3">
       <!--dropdown principal-->
@@ -124,7 +127,11 @@
           <td><%= data[i].first_name +' '+data[i].last_name %></td>
           <td><%= data[i].stock %></td>
           <td>
-            <a class="btn bg-primary-blue text-light" href="/add_card/<%= data[i].id %>">Añadir</a>
+            <a
+              class="btn bg-primary-blue text-light"
+              href="/add_card/<%= data[i].id %>"
+              >Añadir</a
+            >
           </td>
         </tr>
         <% } %> <% } %>
