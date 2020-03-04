@@ -28,4 +28,10 @@ controller.add = (req, res) => {
     });
   });
 };
+controller.add_card=(req,res)=>{
+  var {id_video} = req.params;
+  req.session.id=id_video;
+  console.log(req.session.id);
+  res.redirect("/prestamos");
+}
   module.exports = controller;

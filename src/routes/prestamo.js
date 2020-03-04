@@ -6,6 +6,6 @@ const prestamosCarritoController =require("../controllers/prestamosCarritoContro
 
 router.get("/", prestamosController.list);
 router.get("/carrito", prestamosCarritoController.list);
-//router.get("/agregar_carrito/:id", prestamosCarritoController.list);
+router.get("/agregar_carrito/:id", prestamosController.add_card);
 //router.post('/add_card/:id',prestamosController.add_card);
 module.exports = router;
