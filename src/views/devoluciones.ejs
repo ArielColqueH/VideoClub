@@ -10,11 +10,16 @@
   <div class="row filter-tools my-4 row-no-margin">
     <!--search-->
     <!--input movies-->
-    <div class="input-group w-50">
+    <form
+      action="/devoluciones/searchWord"
+      method="post"
+      class="input-group w-50"
+    >
       <input
         type="text"
         class="form-control d-inline  text-center"
-        placeholder="Ingrese el nombre de la pelicula o actor"
+        name="word"
+        placeholder="Ingrese el nombre el codigo para devolucion"
       />
       <!--//input movies-->
       <!--btn search-->
@@ -22,56 +27,8 @@
         <i class="fas fa-search"></i>
       </button>
       <!--//btn search-->
-    </div>
+    </form>
     <!--//search-->
-    <!--dropwdown genero-->
-    <div class="dropdown ml-3">
-      <!--dropdown principal-->
-      <a
-        class="btn dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Genero
-      </a>
-      <!--//dropdown principal-->
-      <!--drop item-->
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item">Opcion 1</a>
-        <a class="dropdown-item">Opcion 2</a>
-        <a class="dropdown-item">Opcion 3</a>
-      </div>
-      <!--//drop item-->
-    </div>
-    <!--//dropwdown genero-->
-    <!--dropwdown oscar prize's-->
-    <div class="dropdown ml-3">
-      <!--dropdown principal-->
-      <a
-        class="btn dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Premios Oscar's
-      </a>
-      <!--//dropdown principal-->
-      <!--drop item-->
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item">Premio 1</a>
-        <a class="dropdown-item">Premio 2</a>
-        <a class="dropdown-item">Premio 3</a>
-      </div>
-      <!--//drop item-->
-    </div>
-    <!--//dropwdown oscar prize's-->
   </div>
   <!--table-->
   <div class="table-responsive">
