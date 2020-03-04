@@ -115,6 +115,7 @@ Array();%>
           <!--<th scope="col">Nom. al Oscar</th>-->
           <!--<th scope="col">Fecha de Registro</th>-->
           <th scope="col">Disponibles</th>
+          <th scope="col">Cantidad</th>
           <th scope="col">Añadir</th>
         </tr>
       </thead>
@@ -126,12 +127,9 @@ Array();%>
           <td><%= data[i].genre %></td>
           <td><%= data[i].first_name +' '+data[i].last_name %></td>
           <td><%= data[i].stock %></td>
+          <td><input type="number" class="form-control" min ="1" max ="<%=data[i].stock%>" /></td>
           <td>
-            <a
-              class="btn bg-primary-blue text-light"
-              href="/add_card/<%= data[i].id %>"
-              >Añadir</a
-            >
+            <a class="btn bg-primary-blue text-light" href="/prestamos/agregar_carrito/<%=data[i].id_video%>">Añadir</a>
           </td>
         </tr>
         <% } %> <% } %>

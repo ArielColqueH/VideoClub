@@ -5,7 +5,7 @@ const mysql = require("mysql");
 const myConnection = require("express-myconnection");
 const bodyParser = require("body-parser");
 const app = express();
-
+var session = require("express-session");
 //importing routes
 const customerRoutes = require("./routes/customer");
 const loginRoutes = require("./routes/login");
@@ -16,6 +16,9 @@ const devolucionRoutes = require("./routes/devolucion");
 const preciosRoutes = require("./routes/precios");
 const videoRoutes = require("./routes/videos");
 const prestamoCarritoRoutes = require('./routes/prestamo');
+
+'use strict'
+const cookieParser = require('cookie-parser');
 //settings
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -24,6 +27,10 @@ app.set("views", path.join(__dirname, "views"));
 
 
 //middleweares
+app.use(session({
+  secret: "1545ddfddcdcx15",
+}));
+app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(
   myConnection(
