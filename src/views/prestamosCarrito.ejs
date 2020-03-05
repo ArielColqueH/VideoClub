@@ -20,30 +20,23 @@
         <table class="table">
           <thead class="thead-blue">
             <tr class="text-white text-center">
+              <th scope="col">Codigo</th>
               <th scope="col">Nombre de Pelicula</th>
-              <th scope="col">Cantidad</th>
               <th scope="col">Fecha de Solicitud</th>
               <th scope="col">Eliminar</th>
             </tr>
           </thead>
           <tbody>
+            <% if(data){ %> <% for (var i=0 ; i< data.length ; i++){ %>
             <tr class="text-center">
-              <th>Jojo Rabbit</th>
+              <td><%= data[i].id_video %></td>
+              <td><%= data[i].video_title %></td>
+              <td><%= data[i].genre %></td>
               <td>
-                <input
-                  type="number"
-                  class="form-control"
-                  min="1"
-                  max="10"
-                  value="1"
-                />
+                <a class="btn btn-danger text-light" href="/prestamos/carrito/eliminar/<%= data[i].id_video %>">Eliminar</a>
               </td>
-              <td>2020-03-03</td>
-              <td>
-                <button class="btn btn-danger text-light">
-                  Eliminar
-                </button>
-              </td>
+            </tr>
+            <% } %> <% } %>
           </tbody>
         </table>
       </div>
