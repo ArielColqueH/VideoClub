@@ -10,6 +10,7 @@ router.get("/carrito", prestamosCarritoController.listCart);
 router.post("/searchWord", prestamosController.search);
 router.get("/:genre", prestamosController.searchByGenre);
 router.get("/carrito/eliminar/:id", prestamosCarritoController.eliminar);
+router.get("/carrito/add/:id", prestamosController.addCarrito);
 //router.get("/eliminar/:id", prestamosCarritoController.eliminar);
 //router.get("/agregar_carrito/:id", prestamosCarritoController.list);
 //router.get("/carrito/:id", prestamosController.add_card);

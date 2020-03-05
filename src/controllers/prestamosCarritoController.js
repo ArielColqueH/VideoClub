@@ -38,6 +38,7 @@ controller.listCart = (req, res) => {
       if (err) {
         res.json(err);
       } else {
+        //console.log(video);
         res.render("prestamosCarrito", {
           data: video
         });
