@@ -19,11 +19,66 @@ controller.list = (req, res) => {
   });
 };
 controller.save = (req, res) => {
-  const data = req.body;
+  var first_name = req.body.first_name;
+  var fathers_last_name = req.body.fathers_last_name;
+  var mothers_last_name = req.body.mothers_last_name;
+
+  var id_client_card = req.body.id_client_card;
+  var cellphone_number = req.body.cellphone_number;
+  var mail = req.body.mail;
+  var date_of_birth = req.body.date_of_birth;
+  var address = req.body.address;
+  var latitude_address = req.body.latitude_address;
+  var longitude_address = req.body.longitude_address;
+  var registation_date = req.body.registation_date;
+  var invoice_name = req.body.invoice_name;
+  var invoice_nit = req.body.invoice_nit;
+  console.log("aqui");
   req.getConnection((err, conn) => {
-    conn.query("INSERT INTO client SET ?", [data], (err, client) => {
-      res.redirect("clients");
-    });
+    conn.query(
+      "INSERT INTO person (first_name,fathers_last_name,mothers_last_name) values (?,?,?)",
+      [first_name, fathers_last_name, mothers_last_name],
+      (err, client) => {
+        if (err) {
+          res.json(err);
+        } else {
+          conn.query(
+            "SELECT * from person where first_name=? and fathers_last_name=? and mothers_last_name=?",
+            [first_name, fathers_last_name, mothers_last_name],
+            (err, idPerson) => {
+              if (err) {
+                res.json(err);
+              } else {
+                console.log( idPerson[0].id_person);
+                conn.query(
+                  "INSERT INTO client (id_client_card,cellphone_number,mail,date_of_birth,address,latitude_address,longitude_address,registation_date,invoice_name,invoice_nit,id_person) values (?,?,?,?,?,?,?,?,?,?,?)",
+                  [
+                    id_client_card,
+                    cellphone_number,
+                    mail,
+                    date_of_birth,
+                    address,
+                    latitude_address,
+                    longitude_address,
+                    registation_date,
+                    invoice_name,
+                    invoice_nit,
+                    idPerson[0].id_person
+                  ],
+                  (err, client) => {
+                    if (err) {
+                      res.json(err);
+                    } else {
+                      res.redirect("clientes");
+                    }
+                  }
+                );
+              }
+            }
+          );
+        }
+      }
+    );
   });
 };
 controller.edit = (req, res) => {
