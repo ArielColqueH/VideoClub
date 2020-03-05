@@ -1,0 +1,265 @@
+<%-include ('partials/_header', {active: "clientes"}); %>
+<div class="container">
+  <div class="row row-no-margin my-4">
+    <!--title page-->
+    <h2 class="text-primary-blue">
+      Editar Clientes
+    </h2>
+    <!--//title page-->
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Editar Datos
+    </div>
+    <div class="card-body">
+      <form action="/clientes/update/<%= data.id_client %>" method="post">
+        <!--Codigo-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Codigo de Cliente :
+            </div></label
+          >
+          <input
+            type="number"
+            class="form-control text-center col-6"
+            id="codigoRenta"
+            placeholder="Codigo"
+            value="<%= data.id_client %>"
+            disabled
+          />
+        </div>
+        <!--//Codigo-->
+        <!--Nombre-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Nombre :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="nombre"
+            placeholder="Nombre"
+            value="<%= data.first_name %>"
+            disabled
+          />
+        </div>
+        <!--//Nombre-->
+        <!--Apellido P-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Apellido Paterno :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="apellidoPaterno"
+            placeholder="Apellido Paterno"
+            value="<%= data.fathers_last_name %>"
+            disabled
+          />
+        </div>
+        <!--//Apellido P-->
+        <!--Apellido M-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Apellido Materno :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="apellidoMaterno"
+            placeholder="Apellido Materno"
+            value="<%= data.mothers_last_name %>"
+            disabled
+          />
+        </div>
+        <!--//Apellido M-->
+        <!--Carnet ID-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Carnet :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            placeholder="Carnet ID"
+            name="id_client_card"
+            value="<%= data.id_client_card %>"
+          />
+        </div>
+        <!--//Apellido Materno-->
+        <!--Telefono-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Telefono :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="Telefono"
+            placeholder="Telefono"
+            name="cellphone_number"
+            value="<%= data.cellphone_number %>"
+          />
+        </div>
+        <!--//Telefono-->
+        <!--Correo-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Correo :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="Correo"
+            placeholder="Correo"
+            name="mail"
+            value="<%= data.mail %>"
+          />
+        </div>
+        <!--//Correo-->
+        <!--Fecha de nacimiento-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Fecha de nacimiento :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="fecha_nacimiento"
+            placeholder="Fecha de Nacimiento"
+            value="<%= data.date_of_birth %>"
+            name="date_of_birth"
+          />
+        </div>
+        <!--//Fecha de nacimiento-->
+        <!--Direccion-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Direccion :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="direccion"
+            placeholder="Direccion"
+            value="<%= data.address %>"
+            name="address"
+          />
+        </div>
+        <!--//Direccion-->
+        <!--Longitud-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="longitud" class="col"
+            ><div class="text-center center">
+              Longitud :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="longitud"
+            placeholder="Longitud"
+            value="<%= data.longitude_address %>"
+            name="longitude_address"
+          />
+        </div>
+        <!--//Longitud-->
+        <!--Latitud-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Latitud :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="latitud"
+            placeholder="latitud"
+            value="<%= data.latitude_address %>"
+            name="latitude_address"
+          />
+        </div>
+        <!--//Latitud-->
+        <!--Fecha Registro-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Fecha Registro :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="fechaRegistro"
+            placeholder="Fecha Registro"
+            value="<%= data.registation_date %>"
+            name="registation_date"
+          />
+        </div>
+        <!--//Fecha Registro-->
+        <!--Nombre para la factura-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Nombre para la factura :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="nombre_factura"
+            placeholder="Nombre para la factura"
+            value="<%= data.invoice_name %>"
+            name="invoice_name"
+          />
+        </div>
+        <!--//Nombre para la factura-->
+        <!--Nit-->
+        <div class="form-group row row-no-margin mt-3">
+          <label for="codigoRenta" class="col"
+            ><div class="text-center center">
+              Nit :
+            </div></label
+          >
+          <input
+            type="text"
+            class="form-control text-center col-6"
+            id="Nit"
+            placeholder="Nit"
+            value="<%= data.invoice_nit %>"
+            name="invoice_nit"
+          />
+        </div>
+        <div class="row">
+          <button type="submit" class="btn btn-primary ml-auto mr-3">
+            Guardar Datos Editados<i class="fas fa-check ml-2"></i>
+          </button>
+        </div>
+        <!--//Nit-->
+      </form>
+    </div>
+  </div>
+</div>
+
+<%-include ('partials/_footer')%>
