@@ -1,5 +1,9 @@
 <%-include ('partials/_header', {active: "prestamos"}); %>
 <% var sum =0;%>
+<% let date_ob = new Date();%>
+<%let date = ("0" + date_ob.getDate()).slice(-2);%>
+<%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%>
+<%let year = date_ob.getFullYear();%>
 <div class="container">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -48,11 +52,11 @@
       <div class="row">
         <div class="col">
           <p>Fecha de Prestamo</p>
-          <input type="date" class="form-control" />
+          <input id="fecha_inicio" type="date" class="form-control" value="<%=year+'-'+ month+'-'+date%>" />
         </div>
         <div class="col">
           <p>Fecha de Devolucion</p>
-          <input type="date" class="form-control" />
+          <input type="date" id="fecha_devolucion" class="form-control" />
         </div>
       </div>
     </div>
