@@ -39,7 +39,8 @@
               <td><%= data[i].genre %></td>
               <%=sum+=data[i].unit_cost%>
               <td>
-                <a class="btn btn-danger text-light" href="/prestamos/carrito/eliminar/<%= data[i].id_video %>">Eliminar</a>
+                <a class="btn btn-danger text-light"
+                  href="/prestamos/carrito/eliminar/<%= data[i].id_video %>">Eliminar</a>
               </td>
             </tr>
             <% } %> <% } %>
@@ -49,79 +50,61 @@
       <!--//table-->
     </div>
     <div class="col">
-      <div class="row">
-        <div class="col">
-          <p>Fecha de Prestamo</p>
-          <input id="fecha_inicio" type="date" class="form-control" value="<%=year+'-'+ month+'-'+date%>" />
+      <form action ="/prestamos/carrito/factura" method="POST">
+        <div class="row">
+          <p>Días de prestamo</p>
+          <input id="days_of_loan" type="number" class="form-control" value="<%=data2[0].time_rate%>"  name="d_loan"
+          min="<%=data2[0].time_rate%>"  max="<%=data2[4].time_rate%>" />
         </div>
-        <div class="col">
-          <p>Fecha de Devolucion</p>
-          <input type="date" id="fecha_devolucion" class="form-control" />
+        <div class="row">
+          <p>Número de NIT</p>
+          <input type="number" class="form-control text-center col" id="userNit" placeholder="Nit" name="nit"/>
         </div>
-      </div>
+        <input type ="submit" class="btn bg-primary-blue text-light ml-3"/>
+          Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
+      </form>
     </div>
+
   </div>
   <h3 class="my-3">Precio del producto : <%=sum%> Bs</h3>
   <div class="row">
-    <a href="/prestamos" class="btn bg-secondary text-light ml-3"
-      ><i class="fas fa-chevron-left mr-2"></i> Atras</a
-    >
-    <button
-      class="btn bg-primary-blue text-light ml-3"
-      data-toggle="modal"
-      data-target="#invoice"
-    >
+    <a href="/prestamos" class="btn bg-secondary text-light ml-3"><i class="fas fa-chevron-left mr-2"></i> Atras</a>
+    <button class="btn bg-primary-blue text-light ml-3" data-toggle="modal" data-target="#invoice">
       Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
     </button>
   </div>
 </div>
-
 <!--Modals-->
 <div class="modal fade" id="invoice" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title ">Datos para la factura</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="/prestamos/carrito/factura" method="POST">
-         <div class="form-group row row-no-margin">
+        <form action="/prestamos/carrito/factura" method="post">
+          <div class="form-group row row-no-margin">
             <label for="userName" class="col-3">Nombre :</label>
-            <input
-              type="text"
-              class="form-control text-center col"
-              id="userName"
-              placeholder="Nombre para factura"
-            />
+            <input type="text" class="form-control text-center col" id="userName" placeholder="Nombre para factura" />
           </div>
           <div class="form-group row row-no-margin">
             <label for="userNit" class="col-3">Nit :</label>
-            <input
-              type="number"
-              class="form-control text-center col"
-              id="userNit"
-              placeholder="Nit"
-            />
+            <input type="number" class="form-control text-center col" id="userNit" placeholder="Nit" />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary">
               <i class="fas fa-chevron-left mr-2"></i>Atras
             </button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal"  type="submit">
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">
               Siguiente<i class="fas fa-chevron-right ml-2"></i>
             </button>
           </div>
         </form>
       </div>
-      
+
     </div>
   </div>
 </div>

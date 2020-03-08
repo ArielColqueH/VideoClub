@@ -7,7 +7,7 @@ const prestamosCarritoController = require("../controllers/prestamosCarritoContr
 router.get("/", prestamosController.list);
 //router.get("/",prestamosController.ddwGenre);
 router.get("/carrito", prestamosCarritoController.listCart);
-router.post("/factura", prestamosCarritoController.listCart);
+router.post("/carrito/factura", prestamosCarritoController.factura);
 router.post("/searchWord", prestamosController.search);
 router.get("/:genre", prestamosController.searchByGenre);
 router.get("/carrito/eliminar/:id", prestamosCarritoController.eliminar);
