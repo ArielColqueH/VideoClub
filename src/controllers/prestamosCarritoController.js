@@ -141,4 +141,12 @@ function formatDate(date) {
 
   return [year, month, day].join('-');
 }
+function obtenerDescuento(cantidad){
+  if(cantidad<=5){
+    return 0.05;
+  }
+  else{
+    return 0.1;
+  }
+}
 module.exports = controller;
