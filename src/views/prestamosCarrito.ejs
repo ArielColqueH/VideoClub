@@ -1,9 +1,7 @@
-<%-include ('partials/_header', {active: "prestamos"}); %>
-<% var sum =0;%>
-<% let date_ob = new Date();%>
-<%let date = ("0" + date_ob.getDate()).slice(-2);%>
-<%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%>
-<%let year = date_ob.getFullYear();%>
+<%-include ('partials/_header', {active: "prestamos"}); %> <% var sum =0;%> <%
+let date_ob = new Date();%> <%let date = ("0" + date_ob.getDate()).slice(-2);%>
+<%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%> <%let year =
+date_ob.getFullYear();%>
 <div class="container">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -12,7 +10,7 @@
     </h2>
     <!--//title page-->
     <!--cart icon-->
-    <a href="./DetallesPedido.html" class="cart ml-auto">
+    <a href="#" class="cart ml-auto">
       <i class="fas fa-shopping-cart fa-3x "></i>
       <h1 class="d-inline ml-3"><%=data.length%></h1>
     </a>
@@ -39,8 +37,16 @@
               <td><%= data[i].genre %></td>
               <%=sum+=data[i].unit_cost%>
               <td>
+<<<<<<< HEAD
                 <a class="btn btn-danger text-light"
                   href="/prestamos/carrito/eliminar/<%= data[i].id_video %>">Eliminar</a>
+=======
+                <a
+                  class="btn btn-danger text-light"
+                  href="/prestamos/carrito/eliminar/<%= data[i].id_video %>"
+                  >Eliminar</a
+                >
+>>>>>>> 1bcf58fe9891da21bacb245a135b5cf9b34451f3
               </td>
             </tr>
             <% } %> <% } %>
@@ -50,11 +56,23 @@
       <!--//table-->
     </div>
     <div class="col">
+<<<<<<< HEAD
       <form action ="/prestamos/carrito/factura" method="POST">
         <div class="row">
           <p>Días de prestamo</p>
           <input id="days_of_loan" type="number" class="form-control" value="<%=data2[0].time_rate%>"  name="d_loan"
           min="<%=data2[0].time_rate%>"  max="<%=data2[4].time_rate%>" />
+=======
+      <div class="row">
+        <div class="col">
+          <p>Fecha de Prestamo</p>
+          <input
+            id="fecha_inicio"
+            type="date"
+            class="form-control"
+            value="<%=year+'-'+ month+'-'+date%>"
+          />
+>>>>>>> 1bcf58fe9891da21bacb245a135b5cf9b34451f3
         </div>
         <div class="row">
           <p>Número de NIT</p>
@@ -65,6 +83,9 @@
       </form>
     </div>
 
+  </div>
+  <div class="btn btn-primary">
+    Calcular Precio
   </div>
   <h3 class="my-3">Precio del producto : <%=sum%> Bs</h3>
   <div class="row">
@@ -85,7 +106,11 @@
         </button>
       </div>
       <div class="modal-body">
+<<<<<<< HEAD
         <form action="/prestamos/carrito/factura" method="post">
+=======
+        <form action="/prestamos/carrito/factura" method="POST">
+>>>>>>> 1bcf58fe9891da21bacb245a135b5cf9b34451f3
           <div class="form-group row row-no-margin">
             <label for="userName" class="col-3">Nombre :</label>
             <input type="text" class="form-control text-center col" id="userName" placeholder="Nombre para factura" />
@@ -98,13 +123,25 @@
             <button type="button" class="btn btn-secondary">
               <i class="fas fa-chevron-left mr-2"></i>Atras
             </button>
+<<<<<<< HEAD
             <button type="submit" class="btn btn-primary" data-dismiss="modal">
+=======
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+              type="submit"
+            >
+>>>>>>> 1bcf58fe9891da21bacb245a135b5cf9b34451f3
               Siguiente<i class="fas fa-chevron-right ml-2"></i>
             </button>
           </div>
         </form>
       </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1bcf58fe9891da21bacb245a135b5cf9b34451f3
     </div>
   </div>
 </div>
