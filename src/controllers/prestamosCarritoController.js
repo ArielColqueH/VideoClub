@@ -97,10 +97,40 @@ controller.factura = (req, res) => {
                            console.log("Rate function: "+rates[0].id_rate);
                            req.getConnection((err,conn)=>{
                             conn.query("insert into rental (id_rate, id_client, start_date, devolution_date, id_discount, total, id_rental_status, id_administrator) values ("+rates[0].id_rate+","+result[0].id_client+",'"+current_date+"','"+formatDate(sumarDias(d,loan))+' '+hours+':'+minutes+':'+seconds+"',"+idDesc+","+total+","+1+","+1+");",(err,rental)=>{
-                              //console.log("Renta "+rental);
                               console.log(err);
-                              //console.log("Devolución "+formatDate(sumarDias(d,3))+' '+hours+':'+minutes+':'+seconds);
-                              res.redirect("/prestamos/carrito");
+                              req.getConnection((err,conn)=>{
+                                conn.query("select id_video from video where status =1 ",(err,results)=>{
+                                  if(err){
+                                    console.log(err);
+                                  }else{
+                                    if(results.length>0){
+                                        req.getConnection((err,conn)=>{
+                                          conn.query("SELECT id_rental from rental",(err,max)=>{
+                                            var index= max.length;
+                                            var idRental = max[index-1].id_rental
+                                              console.log("Máximo: "+max[index-1].id_rental);});
+                      
+                                              for (var i =0;i<results.length;i++){
+                                                console.log("Identificadores: "+results[i].id_video);
+                                                req.getConnection((err,conn)=>{
+                                                  conn.query("UPDATE video SET stock = stock -1, status =0 WHERE id_video = ? ",[results[i].id_video],(err,res)=>{
+                                                 /*  req.getConnection((err,conn)=>{
+                                                        conn.query("INSERT INTO video_rental (id_rental,id_video,quantity) VALUES ("+idRental+","+results[i].id_video+",1)",(err,res)=>{
+
+                                                        })
+      
+                                                    });*/
+                                                  });
+                                                });
+                                            }
+                                        });
+                                    }
+                                    res.redirect("/prestamos/carrito");
+                                  }
+                                  
+                                });
+                              });
+                              
                             });
                              //res.redirect("/prestamos/carrito");
                         });
