@@ -3,11 +3,8 @@ var peliculasCarrito =
 var peliculasCarritoEliminar = "UPDATE video set status=0 where id_video = ?";
 var days = "select * from rate;";
 const controller = {};
-var listCarrito = new Array();
 var idClient;
-var id_administrador =1;
 var loan;
-var idCost;
 var cantidadPeliculas;
 var idRate;
 var idDesc=0;
@@ -156,19 +153,7 @@ controller.factura = (req, res) => {
   });
 };
 
-function insertarRenta(req,res){
-  var d = new Date();
-  
-  req.getConnection((err,conn)=>{
-    conn.query("insert into rental (id_rate, id_client, start_date, devolution_date, id_discount, total, id_rental_status, id_administrator) values ("+idRate+","+idClient+",'"+current_date+"','"+formatDate(sumarDias(d,3))+' '+hours+':'+minutes+':'+seconds+"',"+idDesc+","+total+","+1+","+1+");",(err,rental)=>{
-      //console.log("Renta "+rental);
-      console.log(err);
-      //console.log("Devolución "+formatDate(sumarDias(d,3))+' '+hours+':'+minutes+':'+seconds);
-      //res.redirect("/prestamos/carrito");
-    });
-     //res.redirect("/prestamos/carrito");
-});
-}
+
 function onbtenerCostoTiempo(req,res){
   res.getConnection((err,conn)=>{
     conn.query("SELECT cost FROM rate WHERE time_rate = ?",[loan],(error,costos)=>{
@@ -248,20 +233,6 @@ function updatevideos(req,res){
   });
 }
 
-function obtenerIdTiempo(req,res){
-  req.getConnection((err,conn)=>{
-    conn.query("SELECT id_rate FROM rate WHERE time_rate = ?",[loan],(err,rates)=>{
-        if(err){
-          res.json(err);
-        }
-        else{
-           idRate=rates[0].id_rate;
-           console.log("Rate function: "+idRate);
-           
-        }
-    });
-  });
-}
 function totalFinal(cantidadCarrito,costoTiempo,descuento){
   return (cantidadCarrito*costoTiempo)-(cantidadCarrito*costoTiempo*descuento);
 }
