@@ -1,0 +1,112 @@
+<%-include ('partials/_header', {active: "prestamos"}); %> <% var sum =0;%> <%
+let date_ob = new Date();%> <%let date = ("0" + date_ob.getDate()).slice(-2);%>
+<%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%> <%let year =
+date_ob.getFullYear();%>
+<div class="container">
+  <div class="row row-no-margin my-4">
+    <!--title page-->
+    <h2 class="text-primary-blue">
+      Factura
+    </h2>
+    <!--//title page-->
+  </div>
+
+  <!--Modal prev factura-->
+  <!--modal body-->
+
+  <div class="container  px-5 my-4 text-center">
+    <label class="font-weight-bold">VideoClub</label><br />
+    <label id="facDirNeg" class="">Numero de Negocio</label><br />
+    <label id="facNumNeg" class="">Direccion de Negocio</label><br />
+    <label class="">La Paz - Bolivia</label><br />
+    <label class="font-weight-bold">FACTURA</label><br />
+    <label class="">ORIGINAL</label><br />
+    <label class="font-weight-bold"
+      >-----------------------------------------------------</label
+    ><br />
+    <label class="">NIT : </label><label id="nitNeg" class=""> 422452</label
+    ><br />
+    <label class="">Factura No : </label
+    ><label id="numFac" class=""> 234534</label><br />
+    <label class="font-weight-bold"
+      >-----------------------------------------------------</label
+    ><br />
+    <label class="">Fecha :</label
+    ><label id="facFecha" class="">Ingresar Fecha actual</label><br />
+    <label class="font-weight-bold"
+      >-----------------------------------------------------</label
+    ><br />
+    <label class="">NIT : </label
+    ><label id="facNitCli" class=""> Numero de Cliente</label><br />
+    <label class="">NOMBRE : </label
+    ><label id="facApllCli" class=""> Nombre de Cliente</label><br />
+    <label class="font-weight-bold"
+      >-----------------------------------------------------</label
+    ><br />
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Unidades</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tr>
+        <td id="facDoc">
+          Pedido
+        </td>
+        <td id="facCant">
+          #Unidades
+        </td>
+        <td id="facCosto">
+          Bs
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          Total :
+        </td>
+        <td id="facTotal">
+          #TotalBs
+        </td>
+      </tr>
+    </table>
+
+    <label id="facLitTotal" class=""></label><br />
+    <label class="font-weight-bold">CODIGO DE CONTROL:</label
+    ><label id="facCodControl" class=""></label><br />
+    <label class="font-weight-bold">FECHA LIMITE DE EMISION:</label
+    ><label id="facFechaLim" class=""></label><br />
+  </div>
+  <!--//modal body-->
+  <!--modal footer-->
+  <div class="px-5">
+    <div class="text-center">
+      <!--btn Cancelar-->
+      <a
+        class="btn negative bg-printalo-blueDetail text-light"
+        data-dismiss="modal"
+        >Cancelar</a
+      >
+      <!--btn Cancelar-->
+      <!--btn Aceptar-->
+      <a
+        class="btn positive bg-printalo-greenDetail text-light"
+        id="btnImprimir"
+        >Imprimir</a
+      >
+      <!--//btn Aceptar-->
+    </div>
+  </div>
+  <!--//modal footer-->
+
+  <!--//Modal prevFactura factura-->
+
+  <div class="row">
+    <a href="/prestamos" class="btn bg-secondary text-light ml-3"
+      ><i class="fas fa-chevron-left mr-2"></i> Atras</a
+    >
+  </div>
+</div>
+<%-include ('partials/_footer')%>

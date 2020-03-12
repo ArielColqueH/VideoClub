@@ -3,11 +3,12 @@ const router = express.Router();
 
 const prestamosController = require("../controllers/prestamosController");
 const prestamosCarritoController = require("../controllers/prestamosCarritoController");
+const prestamosCarritoFacturaController = require("../controllers/prestamosCarritoFacturaController");
 
 router.get("/", prestamosController.list);
 //router.get("/",prestamosController.ddwGenre);
 router.get("/carrito", prestamosCarritoController.listCart);
-router.post("/carrito/factura", prestamosCarritoController.factura);
+router.get("/carrito/factura", prestamosCarritoFacturaController.list);
 router.post("/searchWord", prestamosController.search);
 router.get("/:genre", prestamosController.searchByGenre);
 router.get("/carrito/eliminar/:id", prestamosCarritoController.eliminar);
