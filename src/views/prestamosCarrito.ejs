@@ -64,18 +64,13 @@ date_ob.getFullYear();%>
               min="<%=data2[0].time_rate%>"
               max="<%=data2[4].time_rate%>"
             />
+            <button class="btn bg-primary-blue text-light mt-3">
+              Calcular Total<i class="fas fa-chevron-right ml-2"></i>
+            </button>
           </div>
-          <div class="col-md-6">
-            <p>Número de NIT</p>
-            <input
-              type="number"
-              class="form-control text-center"
-              id="userNit"
-              placeholder="Nit"
-              name="nit"
-            />
-          </div>
+          <div class="col-md-6 "></div>
         </div>
+        <h3 class="my-3">Precio del producto : <%=sum%> Bs</h3>
         <!-- <div class="row">
           <input type="submit" class="btn bg-primary-blue text-light mx-auto" />
           Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
@@ -83,10 +78,30 @@ date_ob.getFullYear();%>
       </form>
     </div>
   </div>
-    <button class="btn bg-primary-blue text-light">
-      Calcular Total<i class="fas fa-chevron-right ml-2"></i>
-    </button>
-  <h3 class="my-3">Precio del producto : <%=sum%> Bs</h3>
+
+  <div class="row my-3">
+    <div class="col-md-3">
+      <p>Nombre</p>
+      <input
+        type="text"
+        class="form-control text-center"
+        id="userNit"
+        placeholder="Nombre Factura"
+        name="nit"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <p>Número de NIT</p>
+      <input
+        type="number"
+        class="form-control text-center"
+        id="userNit"
+        placeholder="Nit"
+        name="nit"
+      />
+    </div>
+  </div>
   <div class="row">
     <a href="/prestamos" class="btn bg-secondary text-light ml-3"
       ><i class="fas fa-chevron-left mr-2"></i> Atras</a
