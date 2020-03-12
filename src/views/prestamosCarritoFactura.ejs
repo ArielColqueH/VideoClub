@@ -1,7 +1,24 @@
 <%-include ('partials/_header', {active: "prestamos"}); %> <% var sum =0;%> <%
 let date_ob = new Date();%> <%let date = ("0" + date_ob.getDate()).slice(-2);%>
 <%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%> <%let year =
-date_ob.getFullYear();%>
+date_ob.getFullYear();
+sumaFecha = function(d, fecha)
+{
+ var Fecha = new Date();
+ var sFecha = fecha || (Fecha.getDate() + "/" + (Fecha.getMonth() +1) + "/" + Fecha.getFullYear());
+ var sep = sFecha.indexOf('/') != -1 ? '/' : '-';
+ var aFecha = sFecha.split(sep);
+ var fecha = aFecha[2]+'/'+aFecha[1]+'/'+aFecha[0];
+ fecha= new Date(fecha);
+ fecha.setDate(fecha.getDate()+parseInt(d));
+ var anno=fecha.getFullYear();
+ var mes= fecha.getMonth()+1;
+ var dia= fecha.getDate();
+ mes = (mes < 10) ? ("0" + mes) : mes;
+ dia = (dia < 10) ? ("0" + dia) : dia;
+ var fechaFinal = dia+sep+mes+sep+anno;
+ return (fechaFinal);
+ }%>
 <div class="container">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -28,35 +45,40 @@ date_ob.getFullYear();%>
     ><br />
     <label class="">Factura No : </label
     ><label id="numFac" class=""> 234534</label><br />
-    <label class="font-weight-bold"
-      >-----------------------------------------------------</label
+    <label class="font-weight-bold">-----------------------------------------------------</label><br />
+    <label class="">Fecha de préstamo :</label
+    ><label id="facFecha" class=""><%=date+'-'+month+'-'+year%></label><br />
+    <label class="font-weight-bold">-----------------------------------------------------</label
     ><br />
-    <label class="">Fecha :</label
-    ><label id="facFecha" class="">Ingresar Fecha actual</label><br />
-    <label class="font-weight-bold"
-      >-----------------------------------------------------</label
-    ><br />
+    <label class="">Fecha de devolución: </label
+      ><label id="facFecha" class=""><%= sumaFecha(data[0].time_rate,date+'-'+month+'-'+year)%></label><br />
+      <label class="font-weight-bold">-----------------------------------------------------</label
+      ><br />
     <label class="">NIT : </label
-    ><label id="facNitCli" class=""> Numero de Cliente</label><br />
+    ><label id="facNitCli" class=""><%=data[0].invoice_nit%></label><br />
     <label class="">NOMBRE : </label
-    ><label id="facApllCli" class=""> Nombre de Cliente</label><br />
-    <label class="font-weight-bold"
-      >-----------------------------------------------------</label
-    ><br />
+    ><label id="facApllCli" class=""> <%=data[0].first_name+' '+data[0].fathers_last_name+' '+data[0].mothers_last_name%></label><br />
+    <label class="font-weight-bold">-----------------------------------------------------</label><br />
     <table class="table table-borderless">
       <thead>
         <tr>
-          <th>Concepto</th>
-          <th>Unidades</th>
-          <th>Total</th>
+          <th>Peliculas</th>
         </tr>
       </thead>
-      <tr>
+      <tbody>
+        <% if(data){ %> <% for (var i=0 ; i< data.length ; i++){ %>
+          <tr class="text-center">
+            <td><%= data[i].video_title %></td>
+          </tr>
+          <% } %> <% } %>
+          
+      </tbody>
+     <!-- <tr>
         <td id="facDoc">
           Pedido
         </td>
         <td id="facCant">
-          #Unidades
+          #Peliculas
         </td>
         <td id="facCosto">
           Bs
@@ -70,13 +92,25 @@ date_ob.getFullYear();%>
         <td id="facTotal">
           #TotalBs
         </td>
-      </tr>
+      </tr>-->
     </table>
+    <label class="font-weight-bold">-----------------------------------------------------</label><br />
+    <label class="">Costo por día (Bs.): </label
+      ><label id="facNitCli" class=""> <%=' ' +data[0].cost%></label><br />
+      <label class="">Cantidad de películas: </label
+        ><label id="facNitCli" class=""> <%=data.length%></label><br />
+      <label class="">Descuento(%) : </label
+        ><label id="facNitCli" class=""> <%=' ' +(data[0].discount)*100%></label><br />
+      <label class="">Total(Bs.) : </label
+      ><label id="facApllCli" class=""> <%=' ' +data[0].total%></label><br />
+      <label class="font-weight-bold"
+        >-----------------------------------------------------</label
+      ><br />
 
     <label id="facLitTotal" class=""></label><br />
-    <label class="font-weight-bold">CODIGO DE CONTROL:</label
+    <label class="font-weight-bold">CODIGO DE CONTROL: 500</label
     ><label id="facCodControl" class=""></label><br />
-    <label class="font-weight-bold">FECHA LIMITE DE EMISION:</label
+    <label class="font-weight-bold">FECHA LIMITE DE EMISION 15-06-2020:</label
     ><label id="facFechaLim" class=""></label><br />
   </div>
   <!--//modal body-->
@@ -104,7 +138,7 @@ date_ob.getFullYear();%>
   <!--//Modal prevFactura factura-->
 
   <div class="row">
-    <a href="/prestamos" class="btn bg-secondary text-light ml-3"
+    <a href="/prestamos/carrito" class="btn bg-secondary text-light ml-3"
       ><i class="fas fa-chevron-left mr-2"></i> Atras</a
     >
   </div>

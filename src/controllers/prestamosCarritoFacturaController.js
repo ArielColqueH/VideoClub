@@ -1,15 +1,15 @@
 const controller = {};
 var peliculas =
   "select a.id_video, b.video_title, c.genre, d.first_name,d.last_name, a.stock from video a, video_title b, genre c, actor d, video_genre e, video_actor f where a.id_video = b.id_video and a.id_video = e.id_video and e.id_genre = c.id_genre and a.id_video = f.id_video and f.id_actor = d.id_actor and status=0 and a.stock>0 group by (a.id_video);";
-
+var datos_renta= "select ra.time_rate,p.first_name,p.fathers_last_name, p.mothers_last_name, c.invoice_nit, vt.video_title, r.total,r.start_date,r.devolution_date,ra.time_rate,ra.cost ,d.discount from video_title vt, rental r, video v, video_rental vr, rate ra, person p, discount d,client c  where p.id_person=c.id_person and c.id_client = r.id_client and  vt.id_video=v.id_video and v.id_video=vr.id_video and vr.id_rental = r.id_rental and r.id_rate=ra.id_rate and r.id_discount=d.id_discount and r.id_rental=(SELECT MAX(id_rental)from rental)";
 controller.list = (req, res) => {
   req.getConnection((err, conn) => {
-    conn.query(peliculas, (err, video) => {
+    conn.query(datos_renta, (err, datos) => {
       if (err) {
         res.json(err);
       } else {
         res.render("prestamosCarritoFactura", {
-          data: video
+          data: datos
         });
       }
     });

@@ -1,7 +1,7 @@
 <%-include ('partials/_header', {active: "prestamos"}); %> <% var sum =0;%> <%
 let date_ob = new Date();%> <%let date = ("0" + date_ob.getDate()).slice(-2);%>
 <%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%> <%let year =
-date_ob.getFullYear();%>
+date_ob.getFullYear();%><%var tot =0;%>
 <div class="container">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -35,7 +35,7 @@ date_ob.getFullYear();%>
               <td><%= data[i].id_video %></td>
               <td><%= data[i].video_title %></td>
               <td><%= data[i].genre %></td>
-              <%=sum+=data[i].unit_cost%>
+              
               <td>
                 <a
                   class="btn btn-danger text-light"
@@ -70,7 +70,7 @@ date_ob.getFullYear();%>
           </div>
           <div class="col-md-6 "></div>
         </div>
-        <h3 class="my-3">Precio del producto : <%=sum%> Bs</h3>
+        <h3 class="my-3">Precio del producto : 0 Bs</h3>
         <!-- <div class="row">
           <input type="submit" class="btn bg-primary-blue text-light mx-auto" />
           Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
@@ -106,7 +106,7 @@ date_ob.getFullYear();%>
     <a href="/prestamos" class="btn bg-secondary text-light ml-3"
       ><i class="fas fa-chevron-left mr-2"></i> Atras</a
     >
-    <a href="/prestamos/carrito/factura" class="btn bg-primary-blue  text-light ml-3"
+    <a href="/prestamos/carrito/calcularFactura" class="btn bg-primary-blue  text-light ml-3"
       > Procesar Pedido<i class="fas fa-chevron-right mr-2"></i></a
     >
   </div>
