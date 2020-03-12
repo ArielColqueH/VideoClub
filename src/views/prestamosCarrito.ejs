@@ -1,7 +1,10 @@
 <%-include ('partials/_header', {active: "prestamos"}); %> <% var sum =0;%> <%
 let date_ob = new Date();%> <%let date = ("0" + date_ob.getDate()).slice(-2);%>
 <%let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);%> <%let year =
-date_ob.getFullYear();%><%var tot =0;%>
+date_ob.getFullYear();%><%var totalcompra =0;%>
+<%if(tot){
+  totalcompra=tot;
+}%>
 <div class="container">
   <div class="row row-no-margin my-4">
     <!--title page-->
@@ -70,7 +73,7 @@ date_ob.getFullYear();%><%var tot =0;%>
           </div>
           <div class="col-md-6 "></div>
         </div>
-        <h3 class="my-3">Precio del producto : 0 Bs</h3>
+        <h3 class="my-3">Precio del producto : <%=totalcompra%> Bs</h3>
         <!-- <div class="row">
           <input type="submit" class="btn bg-primary-blue text-light mx-auto" />
           Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>

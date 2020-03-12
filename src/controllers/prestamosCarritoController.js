@@ -51,11 +51,115 @@ controller.eliminar = (req, res) => {
   });
 };
 
-controller.calculosFactura = (req, res) => {
+// controller.calculosFactura = (req, res) => {
+//   //loan = req.body.d_loan;
+//   //const nit_number = req.body.nit;
+//   loan = 3;
+//   const nit_number = 11212312;
+//   var d = new Date();
+//   req.getConnection((err, conn) => {
+//     conn.query("select id_client from client where invoice_nit = ?", [nit_number], (err, result) => {
+//       if (err) {
+//         res.json(err);
+//       } else {
+//         console.log("Cliente id "+result[0].id_client);
+//         idClient=result[0].id_client;
+//         req.getConnection((err,conn)=>{
+//           conn.query(peliculasCarrito,(err,peliculas)=>{
+//             if(err){
+//               res.join(err);
+//             }
+//             else{
+//               console.log("Cantidad Películas: "+peliculas.length);
+//               var idDesc=obteneridDescuento(peliculas.length);
+//               var desc=obtenerDescuento(peliculas.length);
+//               console.log("Id descuento: "+idDesc);
+//               console.log("Descuento: "+desc);
+//               req.getConnection((err,conn)=>{
+//                 conn.query("SELECT cost FROM rate WHERE time_rate = ?",[loan],(error,costos)=>{
+//                   if(err){
+//                     res.json(error);
+//                     console.log("Error costo tiempo "+ error)
+//                   }
+//                   else{
+//                    console.log("Costo: "+costos[0].cost);
+//                     var total =totalFinal(peliculas.length,costos[0].cost,desc);
+//                     console.log("Total: "+total);
+//                     console.log("Devolución "+formatDate(sumarDias(d,loan))+' '+hours+':'+minutes+':'+seconds);
+//                     console.log("Días de préstamo "+2);
+//                     req.getConnection((err,conn)=>{
+//                       conn.query("SELECT id_rate FROM rate WHERE time_rate = ?",[loan],(err,rates)=>{
+//                         if(err){
+//                           res.json(err);
+//                         }
+//                         else{
+//                            console.log("Rate function: "+rates[0].id_rate);
+//                            req.getConnection((err,conn)=>{
+//                             conn.query("insert into rental (id_rate, id_client, start_date, devolution_date, id_discount, total, id_rental_status, id_administrator) values ("+rates[0].id_rate+","+result[0].id_client+",'"+current_date+"','"+formatDate(sumaFecha(loan,day+'-'+month+'-'+year))+' '+hours+':'+minutes+':'+seconds+"',"+idDesc+","+total+","+1+","+1+");",(err,rental)=>{
+//                               console.log(err);
+//                               req.getConnection((err,conn)=>{
+//                                 conn.query("SELECT id_rental FROM rental",(err,ids)=>{
+//                                   var index  = ids.length;
+                                 
+//                                   req.getConnection((err,con)=>{
+//                                     conn.query("select id_video from video where status =1" ,(err,results)=>{
+//                                       if(err){
+//                                         console.log(err);
+//                                       }else{
+//                                         if(results.length>0){
+//                                                   for (var i =0;i<results.length;i++){
+                                                  
+//                                                   req.getConnection((err,conn)=>{
+//                                                     console.log("Identificadores" +results[i].id_video);
+//                                                     conn.query("INSERT INTO video_rental (id_rental, id_video,quantity) VALUES ("+ids[index-1].id_rental+","+results[i].id_video+",1)",(err,res)=>{
+//                                                       console.log("Id renta: "+ids[index-1].id_rental);
+                                                      
+//                                                       });
+//                                                      console.log("Id renta: "+ids[index-1].id_rental);
+//                                                    });
+//                                                   }
+//                                                   updatevideos(req,res);
+//                                                   res.redirect("prestamos/carrito/factura");
+//                                         }
+//                                         else{
+//                                           res.redirect("prestamos/carrito/factura");
+//                                         }
+                                  
+//                                       }
+                                      
+//                                     });
+//                                   });
+//                                 });
+//                               });
+                              
+//                             });
+//                             res.redirect("prestamos/carrito/factura");
+//                         });
+                           
+//                         }
+//                     });
+//                     });
+
+//                   }
+//               });
+//               });
+//             }
+//           });
+      
+          
+//         });
+//      
+//        res.redirect("/prestamos/carrito");
+//       }
+//     });
+//   });
+// };
+
+controller.total = (req, res) => {
   //loan = req.body.d_loan;
   //const nit_number = req.body.nit;
   loan = 3;
-  const nit_number = 11212312;
+  //const nit_number = 11212312;
   var d = new Date();
   req.getConnection((err, conn) => {
     conn.query("select id_client from client where invoice_nit = ?", [nit_number], (err, result) => {
@@ -84,61 +188,7 @@ controller.calculosFactura = (req, res) => {
                   else{
                    console.log("Costo: "+costos[0].cost);
                     var total =totalFinal(peliculas.length,costos[0].cost,desc);
-                    console.log("Total: "+total);
-                    console.log("Devolución "+formatDate(sumarDias(d,loan))+' '+hours+':'+minutes+':'+seconds);
-                    console.log("Días de préstamo "+2);
-                    req.getConnection((err,conn)=>{
-                      conn.query("SELECT id_rate FROM rate WHERE time_rate = ?",[loan],(err,rates)=>{
-                        if(err){
-                          res.json(err);
-                        }
-                        else{
-                           console.log("Rate function: "+rates[0].id_rate);
-                           req.getConnection((err,conn)=>{
-                            conn.query("insert into rental (id_rate, id_client, start_date, devolution_date, id_discount, total, id_rental_status, id_administrator) values ("+rates[0].id_rate+","+result[0].id_client+",'"+current_date+"','"+formatDate(sumaFecha(loan,day+'-'+month+'-'+year))+' '+hours+':'+minutes+':'+seconds+"',"+idDesc+","+total+","+1+","+1+");",(err,rental)=>{
-                              console.log(err);
-                              req.getConnection((err,conn)=>{
-                                conn.query("SELECT id_rental FROM rental",(err,ids)=>{
-                                  var index  = ids.length;
-                                 
-                                  req.getConnection((err,con)=>{
-                                    conn.query("select id_video from video where status =1" ,(err,results)=>{
-                                      if(err){
-                                        console.log(err);
-                                      }else{
-                                        if(results.length>0){
-                                                  for (var i =0;i<results.length;i++){
-                                                  
-                                                  req.getConnection((err,conn)=>{
-                                                    console.log("Identificadores" +results[i].id_video);
-                                                    conn.query("INSERT INTO video_rental (id_rental, id_video,quantity) VALUES ("+ids[index-1].id_rental+","+results[i].id_video+",1)",(err,res)=>{
-                                                      console.log("Id renta: "+ids[index-1].id_rental);
-                                                      
-                                                      });
-                                                     console.log("Id renta: "+ids[index-1].id_rental);
-                                                   });
-                                                  }
-                                                  updatevideos(req,res);
-                                                  res.redirect("prestamos/carrito/factura");
-                                        }
-                                        else{
-                                          res.redirect("prestamos/carrito/factura");
-                                        }
-                                  
-                                      }
-                                      
-                                    });
-                                  });
-                                });
-                              });
-                              
-                            });
-                            res.redirect("prestamos/carrito/factura");
-                        });
-                           
-                        }
-                    });
-                    });
+                    res.render("prestamos/carrito",{tot:total});
 
                   }
               });
@@ -148,7 +198,6 @@ controller.calculosFactura = (req, res) => {
       
           
         });
-       insertarRenta(req,res);
        res.redirect("/prestamos/carrito");
       }
     });

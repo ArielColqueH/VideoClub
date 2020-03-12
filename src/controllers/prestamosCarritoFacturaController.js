@@ -113,7 +113,7 @@ controller.list = (req, res) => {
       
           
 //         });
-//        // insertarRenta(req,res);
+//        
 //        // res.redirect("/prestamos/carrito");
 //       }
 //     });

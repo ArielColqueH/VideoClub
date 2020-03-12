@@ -9,7 +9,7 @@ router.get("/", prestamosController.list);
 //router.get("/",prestamosController.ddwGenre);
 router.get("/carrito", prestamosCarritoController.listCart);
 router.get("/carrito/total", prestamosCarritoController.total);
-router.get("/carrito/calcularFactura", prestamosCarritoController.calculosFactura);
+//router.get("/carrito/calcularFactura", prestamosCarritoController.calculosFactura);
 router.get("/carrito/factura", prestamosCarritoFacturaController.list);
 router.post("/searchWord", prestamosController.search);
 router.get("/:genre", prestamosController.searchByGenre);
