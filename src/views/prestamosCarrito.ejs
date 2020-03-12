@@ -51,29 +51,51 @@ date_ob.getFullYear();%>
       <!--//table-->
     </div>
     <div class="col">
-      <form action ="/prestamos/carrito/factura" method="POST">
+      <form action="/prestamos/carrito/factura" method="POST">
         <div class="row">
-          <p>Días de prestamo</p>
-          <input id="days_of_loan" type="number" class="form-control" value="<%=data2[0].time_rate%>"  name="d_loan"
-          min="<%=data2[0].time_rate%>"  max="<%=data2[4].time_rate%>" />
+          <div class="col-md-6">
+            <p>Días de prestamo</p>
+            <input
+              id="days_of_loan"
+              type="number"
+              class="form-control text-center"
+              value="<%=data2[0].time_rate%>"
+              name="d_loan"
+              min="<%=data2[0].time_rate%>"
+              max="<%=data2[4].time_rate%>"
+            />
+          </div>
+          <div class="col-md-6">
+            <p>Número de NIT</p>
+            <input
+              type="number"
+              class="form-control text-center"
+              id="userNit"
+              placeholder="Nit"
+              name="nit"
+            />
+          </div>
         </div>
-        <div class="row">
-          <p>Número de NIT</p>
-          <input type="number" class="form-control text-center col" id="userNit" placeholder="Nit" name="nit"/>
-        </div>
-        <input type ="submit" class="btn bg-primary-blue text-light ml-3"/>
+        <!-- <div class="row">
+          <input type="submit" class="btn bg-primary-blue text-light mx-auto" />
           Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
+        </div> -->
       </form>
     </div>
-
   </div>
-  <div class="btn btn-primary">
-    Calcular Precio
-  </div>
+    <button class="btn bg-primary-blue text-light">
+      Calcular Total<i class="fas fa-chevron-right ml-2"></i>
+    </button>
   <h3 class="my-3">Precio del producto : <%=sum%> Bs</h3>
   <div class="row">
-    <a href="/prestamos" class="btn bg-secondary text-light ml-3"><i class="fas fa-chevron-left mr-2"></i> Atras</a>
-    <button class="btn bg-primary-blue text-light ml-3" data-toggle="modal" data-target="#invoice">
+    <a href="/prestamos" class="btn bg-secondary text-light ml-3"
+      ><i class="fas fa-chevron-left mr-2"></i> Atras</a
+    >
+    <button
+      class="btn bg-primary-blue text-light ml-3"
+      data-toggle="modal"
+      data-target="#invoice"
+    >
       Procesar Pedido<i class="fas fa-chevron-right ml-2"></i>
     </button>
   </div>
@@ -84,7 +106,12 @@ date_ob.getFullYear();%>
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title ">Datos para la factura</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -92,11 +119,21 @@ date_ob.getFullYear();%>
         <form action="/prestamos/carrito/factura" method="POST">
           <div class="form-group row row-no-margin">
             <label for="userName" class="col-3">Nombre :</label>
-            <input type="text" class="form-control text-center col" id="userName" placeholder="Nombre para factura" />
+            <input
+              type="text"
+              class="form-control text-center col"
+              id="userName"
+              placeholder="Nombre para factura"
+            />
           </div>
           <div class="form-group row row-no-margin">
             <label for="userNit" class="col-3">Nit :</label>
-            <input type="number" class="form-control text-center col" id="userNit" placeholder="Nit" />
+            <input
+              type="number"
+              class="form-control text-center col"
+              id="userNit"
+              placeholder="Nit"
+            />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary">
