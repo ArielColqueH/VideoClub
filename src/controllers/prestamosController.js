@@ -9,6 +9,9 @@ var peliculasByGenre =
   "select a.id_video, b.video_title, c.genre, d.first_name,d.last_name, a.stock from video a, video_title b, genre c, actor d, video_genre e, video_actor f where a.id_video = b.id_video and a.id_video = e.id_video and e.id_genre = c.id_genre and a.id_video = f.id_video and f.id_actor = d.id_actor and c.genre = ? and a.stock>0 group by (a.id_video);";
 
 var peliculasCarritoAgregar = "UPDATE video set status=1 where id_video = ?";
+
+var peliculasCarrito =
+  "select a.id_video, b.video_title, c.genre, d.first_name,d.last_name, a.stock, a.unit_cost from video a, video_title b, genre c, actor d, video_genre e, video_actor f where a.id_video = b.id_video and a.id_video = e.id_video and e.id_genre = c.id_genre and a.id_video = f.id_video and f.id_actor = d.id_actor and status=1 and a.stock>0 group by (a.id_video);";
 controller.list = (req, res) => {
   req.getConnection((err, conn) => {
     conn.query(peliculas, (err, video) => {
@@ -19,9 +22,15 @@ controller.list = (req, res) => {
           if (err) {
             res.json(err);
           } else {
-            res.render("prestamos", {
-              data: video,
-              data2: genre_names
+            if (err) {
+              res.json(err);
+            }
+            conn.query(peliculasCarrito, (err, enCarrito) => {
+              res.render("prestamos", {
+                data: video,
+                data2: genre_names,
+                data3: enCarrito
+              });
             });
           }
         });
@@ -58,9 +67,15 @@ controller.search = (req, res) => {
             if (err) {
               res.json(err);
             } else {
-              res.render("prestamos", {
-                data: video,
-                data2: genre_names
+              if (err) {
+                res.json(err);
+              }
+              conn.query(peliculasCarrito, (err, enCarrito) => {
+                res.render("prestamos", {
+                  data: video,
+                  data2: genre_names,
+                  data3: enCarrito
+                });
               });
             }
             // res.render("/prestamos");
@@ -108,9 +123,15 @@ controller.searchByGenre = (req, res) => {
           if (err) {
             res.json(err);
           } else {
-            res.render("prestamos", {
-              data: video,
-              data2: genre_names
+            if (err) {
+              res.json(err);
+            }
+            conn.query(peliculasCarrito, (err, enCarrito) => {
+              res.render("prestamos", {
+                data: video,
+                data2: genre_names,
+                data3: enCarrito
+              });
             });
           }
         });
